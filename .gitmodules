@@ -1,0 +1,11 @@
+[submodule "WMS_Core"]
+	path = WMS_Core
+	url = https://github.com/avandall/WMS_Core.git
+
+[submodule "WMS_MCP_Server"]
+	path = WMS_MCP_Server
+	url = https://github.com/avandall/WMS_MCP_Server.git
+
+[submodule "WMS_AI_Service"]
+	path = WMS_AI_Service
+	url = https://github.com/avandall/WMS_AI_Service.git
