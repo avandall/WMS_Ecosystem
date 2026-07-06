@@ -1,0 +1,33 @@
+FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
+
+# Configure execution environment and optimize glibc memory allocation
+ENV PATH="/app/.venv/bin:$PATH" \
+    PYTHONUNBUFFERED=1 \
+    UV_COMPILE_BYTECODE=1 \
+    UV_LINK_MODE=copy \
+    PORT=8000 \
+    # Disable AI Service and Redis events to save RAM
+    RUN_AI_SERVICE=0 \
+    EVENTS_ENABLED=0 \
+    # Render free-plan memory tuning to aggressively return memory to OS
+    MALLOC_TRIM_THRESHOLD_="65536" \
+    PYTHONMALLOC="malloc" \
+    GRPC_MAX_CONCURRENT_RPCS="4"
+
+WORKDIR /app
+
+# Copy WMS_Core code (which includes the shared-utils submodule inside Libraries)
+COPY WMS_Core ./WMS_Core
+
+# Install core uvicorn/fastapi dependencies and local shared-utils package
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv venv && \
+    uv pip install -r WMS_Core/requirement_render.txt && \
+    uv pip install -e WMS_Core/Libraries/shared-utils
+
+EXPOSE 8000
+
+WORKDIR /app/WMS_Core
+
+# Boot up the python process supervisor
+CMD ["python", "run_all.py"]
