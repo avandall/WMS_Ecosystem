@@ -9,3 +9,6 @@
 [submodule "WMS_AI_Services"]
 	path = WMS_AI_Services
 	url = https://github.com/avandall/WMS_AI_Services.git
+[submodule "shared-utils"]
+	path = shared-utils
+	url = ./shared-utils
