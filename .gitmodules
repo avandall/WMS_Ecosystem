@@ -11,4 +11,4 @@
 	url = https://github.com/avandall/WMS_AI_Services.git
 [submodule "shared-utils"]
 	path = shared-utils
-	url = ./shared-utils
+	url = https://github.com/avandall/shared-utils.git
