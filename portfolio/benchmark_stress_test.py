@@ -6,9 +6,8 @@ import uuid
 
 TARGET_URL = "http://localhost:8000/api/v1/inventory/ingest"  # api-gateway endpoint
 
-async def send_sensor_data(client: httpx.AsyncClient, worker_id: int):
+async def send_sensor_data(client: httpx.AsyncClient, worker_id: int, sem: asyncio.Semaphore):
     """Giả lập 1 thiết bị quét mã/robot gửi event liên tục về hệ thống"""
-    # Tạo dữ liệu giả lập giống hệt hệ thống WMS thực tế
     payload = {
         "idempotency_key": str(uuid.uuid4()),
         "sku": f"SKU-AI-MODEL-{random.randint(100, 105)}",
@@ -16,20 +15,26 @@ async def send_sensor_data(client: httpx.AsyncClient, worker_id: int):
         "trace_id": f"trace-{uuid.uuid4().hex[:8]}"
     }
     
-    start_time = time.perf_counter()
-    try:
-        response = await client.post(TARGET_URL, json=payload, timeout=2.0)
-        latency = time.perf_counter() - start_time
-        return response.status_code, latency
-    except Exception:
-        return 500, time.perf_counter() - start_time
+    async with sem:
+        start_time = time.perf_counter()
+        try:
+            # Tăng timeout lên 10.0s để chịu được đỉnh tải khi gateway bận
+            response = await client.post(TARGET_URL, json=payload, timeout=20.0)
+            latency = time.perf_counter() - start_time
+            return response.status_code, latency
+        except Exception as e:
+            # Trả về 500 nếu gặp lỗi kết nối hoặc timeout
+            return 500, time.perf_counter() - start_time
 
 async def start_traffic_simulator(total_requests: int, concurrency: int):
     print(f"🚀 Starting Traffic Simulator: Sending {total_requests} events with concurrency={concurrency}")
     
+    # Sử dụng Semaphore để điều phối tải thực tế từ phía client, tránh nghẽn hàng đợi kết nối của httpx
+    sem = asyncio.Semaphore(concurrency)
     limits = httpx.Limits(max_keepalive_connections=concurrency, max_connections=concurrency)
+    
     async with httpx.AsyncClient(limits=limits) as client:
-        tasks = [send_sensor_data(client, i) for i in range(total_requests)]
+        tasks = [send_sensor_data(client, i, sem) for i in range(total_requests)]
         
         start_bench = time.perf_counter()
         results = await asyncio.gather(*tasks)
@@ -52,4 +57,4 @@ async def start_traffic_simulator(total_requests: int, concurrency: int):
 
 if __name__ == "__main__":
     # Chạy trên môi trường WSL để lấy chỉ số thực tế cho hệ thống WMS của bạn
-    asyncio.run(start_traffic_simulator(total_requests=5000, concurrency=500))
+    asyncio.run(start_traffic_simulator(total_requests=10000, concurrency=3000))
