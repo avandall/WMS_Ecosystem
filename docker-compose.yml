@@ -1,0 +1,3 @@
+include:
+  - path: WMS_Core/docker-compose.yml
+  - path: WMS_MCP_Server/docker-compose.yml
