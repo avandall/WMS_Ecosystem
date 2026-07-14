@@ -1,0 +1,16 @@
+#!/bin/bash
+# Wrapper script to run WMS Ecosystem Live Debugger Dashboard
+
+# Resolve script path
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# Add shared-utils to PYTHONPATH
+export PYTHONPATH="$ROOT_DIR/shared-utils/src:$PYTHONPATH"
+
+# Run CLI debugger using the virtualenv python
+if [ -f "$ROOT_DIR/WMS_Core/.venv/bin/python" ]; then
+    "$ROOT_DIR/WMS_Core/.venv/bin/python" -m shared_utils.debugger.cli "$@"
+else
+    python3 -m shared_utils.debugger.cli "$@"
+fi
