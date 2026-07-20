@@ -436,61 +436,7 @@ function drawLine(data, strokeStyle, fillStyle, lineWidth) {
     ctx.fill();
 }
 
-// CONTACT FORM SUBMISSION (REAL EMAIL VIA FORMSPREE AJAX)
-function handleFormSubmit(event) {
-    event.preventDefault();
-    const name = document.getElementById('form-name').value;
-    const email = document.getElementById('form-email').value;
-    const message = document.getElementById('form-msg').value;
-    
-    const submitBtn = document.getElementById('form-submit-btn');
-    const successAlert = document.getElementById('form-success-alert');
-    
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending Message...';
-    
-    // Construct FormData instead of JSON to prevent Formspree parse blocks
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("message", message);
-    formData.append("_subject", `WMS Portfolio: Contact from ${name}`);
-    
-    fetch("https://formspree.io/avannguyen.nina@gmail.com", {
-        method: "POST",
-        body: formData,
-        headers: {
-            "Accept": "application/json"
-        }
-    })
-    .then(response => {
-        if (response.ok) {
-            submitBtn.textContent = 'Message Sent!';
-            successAlert.className = 'alert-success';
-            successAlert.textContent = '✓ Message sent successfully! I will get back to you soon.';
-            document.getElementById('contact-form').reset();
-        } else {
-            throw new Error('Formspree response not ok');
-        }
-    })
-    .catch(error => {
-        console.error("Error sending email:", error);
-        submitBtn.textContent = 'Error sending';
-        successAlert.className = 'alert-success';
-        successAlert.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
-        successAlert.style.borderColor = 'rgba(239, 68, 68, 0.2)';
-        successAlert.style.color = 'var(--color-red-500)';
-        successAlert.textContent = '✗ Failed to send. Please click the "Copy Email Address" button above.';
-    })
-    .finally(() => {
-        setTimeout(() => {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Message';
-            successAlert.className = 'alert-success style-hidden';
-            successAlert.removeAttribute('style'); // Reset inline styles
-        }, 4000);
-    });
-}
+
 
 // EMAIL CLIPBOARD COPY
 function copyEmailToClipboard(btn) {
