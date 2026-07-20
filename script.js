@@ -100,7 +100,7 @@ function toggleMode(asyncMode) {
         // Restore SVG Elements
         svgQueueNode.style.opacity = '1';
         svgGatewayModeText.textContent = 'Async Mode';
-        svgGatewayModeText.setAttribute('fill', '#047857');
+        svgGatewayModeText.setAttribute('fill', '#D97706'); // Claude Amber Accent
         
         // Reset Dropped
         totalDropped = 0;
@@ -213,7 +213,7 @@ function simulationTick() {
             queueBarFill.style.backgroundColor = 'var(--color-emerald-500)';
         } else if (queueRatio < 55) {
             queueIndicator.className = 'stat-indicator pulse-yellow';
-            queueBarFill.style.backgroundColor = 'var(--color-yellow-500)';
+            queueBarFill.style.backgroundColor = 'var(--color-amber-600)';
         } else {
             queueIndicator.className = 'stat-indicator pulse-red';
             queueBarFill.style.backgroundColor = 'var(--color-red-500)';
@@ -283,7 +283,7 @@ function simulationTick() {
         }
         
         // Reset worker UI
-        workerChipsContainer.innerHTML = `<span class="worker-chip active" style="border-color: var(--color-red-600); color: var(--color-red-600); background: var(--color-red-500-alpha);">Sync Thread</span>`;
+        workerChipsContainer.innerHTML = `<span class="worker-chip active" style="border-color: var(--color-red-500); color: var(--color-red-500); background: var(--color-red-500-alpha);">Sync Thread</span>`;
         
         // Reset SVG Node opacity
         workerNode1.style.opacity = '1';
@@ -319,7 +319,7 @@ function updateSvgWorkerNodes() {
     if (activeWorkers >= 1) {
         workerNode1.style.opacity = '1';
         workerNode1.querySelector('.worker-node-rect').style.stroke = 'var(--color-emerald-500)';
-        workerNode1.querySelector('.worker-node-rect').style.fill = 'rgba(16, 185, 129, 0.04)';
+        workerNode1.querySelector('.worker-node-rect').style.fill = 'rgba(16, 185, 129, 0.08)';
     } else {
         workerNode1.style.opacity = '0.35';
     }
@@ -327,22 +327,22 @@ function updateSvgWorkerNodes() {
     if (activeWorkers >= 2) {
         workerNode2.style.opacity = '1';
         workerNode2.querySelector('.worker-node-rect').style.stroke = 'var(--color-purple-500)';
-        workerNode2.querySelector('.worker-node-rect').style.fill = 'rgba(139, 92, 246, 0.04)';
+        workerNode2.querySelector('.worker-node-rect').style.fill = 'rgba(139, 92, 246, 0.08)';
     } else {
         workerNode2.style.opacity = '0.35';
-        workerNode2.querySelector('.worker-node-rect').style.stroke = '#E5E7EB';
-        workerNode2.querySelector('.worker-node-rect').style.fill = '#FFFFFF';
+        workerNode2.querySelector('.worker-node-rect').style.stroke = '#3F3F46';
+        workerNode2.querySelector('.worker-node-rect').style.fill = '#27272A';
     }
 
     if (activeWorkers >= 4) {
         workerNode3.style.opacity = '1';
         workerNode3.querySelector('.worker-node-rect').style.stroke = 'var(--color-pink-500)';
-        workerNode3.querySelector('.worker-node-rect').style.fill = 'rgba(217, 70, 239, 0.04)';
+        workerNode3.querySelector('.worker-node-rect').style.fill = 'rgba(217, 70, 239, 0.08)';
         workerNode3.querySelector('text').textContent = `W3 - W${activeWorkers}`;
     } else {
         workerNode3.style.opacity = '0.35';
-        workerNode3.querySelector('.worker-node-rect').style.stroke = '#E5E7EB';
-        workerNode3.querySelector('.worker-node-rect').style.fill = '#FFFFFF';
+        workerNode3.querySelector('.worker-node-rect').style.stroke = '#3F3F46';
+        workerNode3.querySelector('.worker-node-rect').style.fill = '#27272A';
         workerNode3.querySelector('text').textContent = 'Worker 3';
     }
 }
@@ -367,7 +367,7 @@ function drawChart() {
     ctx.clearRect(0, 0, width, height);
     
     // Draw Grid Lines
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.04)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
     ctx.lineWidth = 1;
     const gridRows = 4;
     const gridCols = 10;

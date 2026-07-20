@@ -1,25 +1,27 @@
 /* ==========================================
-   CSS RESET & DESIGN SYSTEM (LIGHT THEME)
+   CSS RESET & DESIGN SYSTEM (CLAUDE DARK THEME)
    ========================================== */
 :root {
-    --bg-main: #FAFAFA;
-    --bg-card: #FFFFFF;
-    --bg-card-hover: #F9FAFB;
-    --border-card: #E5E7EB;
+    --bg-main: #18181B; /* Zinc 900 */
+    --bg-card: #27272A; /* Zinc 800 */
+    --bg-card-hover: #2E2E33;
+    --border-card: #3F3F46; /* Zinc 700 */
     
-    --text-primary: #111827;
-    --text-secondary: #4B5563;
-    --text-accent: #047857; /* Emerald 700 */
+    --text-primary: #F4F4F5; /* Zinc 100 */
+    --text-secondary: #A1A1AA; /* Zinc 400 */
+    --text-accent: #D97706; /* Amber 600 - Claude Terracotta */
+    
+    --color-amber-500: #F59E0B;
+    --color-amber-600: #D97706;
+    --color-amber-700: #B45309;
     
     --color-emerald-500: #10B981;
     --color-emerald-600: #059669;
-    --color-emerald-700: #047857;
     
     --color-red-500: #EF4444;
     --color-red-600: #DC2626;
-    --color-red-500-alpha: rgba(239, 68, 68, 0.1);
+    --color-red-500-alpha: rgba(239, 68, 68, 0.15);
     
-    --color-yellow-500: #F59E0B;
     --color-blue-500: #3B82F6;
     --color-purple-500: #8B5CF6;
     --color-pink-500: #EC4899;
@@ -41,10 +43,10 @@ html {
 
 body {
     background-color: var(--bg-main);
-    /* Clean grid background pattern */
+    /* Clean light-dot grid background pattern on dark canvas */
     background-image: 
-        radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.04) 1px, transparent 0),
-        linear-gradient(to right, rgba(0, 0, 0, 0.01) 1px, transparent 0);
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0),
+        linear-gradient(to right, rgba(255, 255, 255, 0.005) 1px, transparent 0);
     background-size: 24px 24px, 100% 1px;
     color: var(--text-primary);
     font-family: var(--font-sans);
@@ -62,11 +64,11 @@ body {
     background: var(--bg-main);
 }
 ::-webkit-scrollbar-thumb {
-    background: #D1D5DB;
+    background: #3F3F46;
     border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #9CA3AF;
+    background: #52525B;
 }
 
 /* ==========================================
@@ -78,7 +80,7 @@ body {
     left: 0;
     right: 0;
     height: 64px;
-    background: rgba(250, 250, 250, 0.85);
+    background: rgba(24, 24, 27, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-card);
@@ -97,9 +99,8 @@ body {
     font-weight: 700;
     letter-spacing: -0.5px;
 }
-.logo-icon {
-    font-size: 1.1rem;
-    animation: flash 2s infinite;
+.logo-prompt {
+    color: var(--text-accent);
 }
 .logo-text {
     color: var(--text-primary);
@@ -140,40 +141,40 @@ body {
     border: 1px solid transparent;
 }
 .btn-primary {
-    background-color: var(--color-emerald-500);
-    color: #111827; /* Dark text on bright background for high contrast */
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    background-color: var(--color-amber-600);
+    color: #18181B; /* Dark text on bright background for high contrast */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 .btn-primary:hover {
-    background-color: var(--color-emerald-600);
+    background-color: var(--color-amber-500);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
 }
 .btn-primary:active {
     transform: translateY(0);
 }
 
 .btn-secondary {
-    background-color: #FFFFFF;
+    background-color: #27272A;
     color: var(--text-primary);
     border: 1px solid var(--border-card);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 .btn-secondary:hover {
-    background-color: #F9FAFB;
-    border-color: #D1D5DB;
+    background-color: #2E2E33;
+    border-color: #52525B;
     transform: translateY(-1px);
 }
 
 .btn-outline {
     background: transparent;
-    border: 1px solid #D1D5DB;
+    border: 1px solid #3F3F46;
     color: var(--text-secondary);
 }
 .btn-outline:hover, .btn-outline.active {
-    border-color: var(--color-emerald-700);
-    color: var(--color-emerald-700);
-    background: rgba(4, 120, 87, 0.04);
+    border-color: var(--color-amber-600);
+    color: var(--color-amber-600);
+    background: rgba(217, 119, 6, 0.05);
 }
 .btn-full {
     width: 100%;
@@ -196,18 +197,18 @@ body {
     letter-spacing: 0.05em;
 }
 .badge-accent {
-    background: rgba(4, 120, 87, 0.06);
+    background: rgba(217, 119, 6, 0.1);
     color: var(--text-accent);
-    border: 1px solid rgba(4, 120, 87, 0.15);
+    border: 1px solid rgba(217, 119, 6, 0.25);
 }
 .badge-success {
     background: rgba(16, 185, 129, 0.1);
-    color: var(--color-emerald-700);
+    color: var(--color-emerald-500);
     border: 1px solid rgba(16, 185, 129, 0.2);
 }
 .badge-danger {
-    background: rgba(239, 68, 68, 0.08);
-    color: var(--color-red-600);
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--color-red-500);
     border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
@@ -240,7 +241,7 @@ body {
     font-family: var(--font-mono);
     font-size: 2rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.3;
     margin: 1.5rem 0 1.25rem;
     letter-spacing: -0.5px;
     color: var(--text-primary);
@@ -254,9 +255,9 @@ body {
     font-size: 1rem;
     color: var(--text-secondary);
     font-weight: 400;
-    max-width: 720px;
+    max-width: 750px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 /* ==========================================
@@ -273,16 +274,16 @@ body {
     background: var(--bg-card);
     border: 1px solid var(--border-card);
     border-radius: 8px;
-    padding: 24px; /* 1.5rem / Card Padding */
+    padding: 24px;
     transition: border-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 .dashboard-card:hover {
-    border-color: #D1D5DB;
+    border-color: #52525B;
 }
 .dashboard-card.card-error-state {
     border-color: rgba(239, 68, 68, 0.4);
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.05);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.1);
 }
 
 .control-header {
@@ -311,7 +312,7 @@ body {
     align-items: center;
     gap: 1rem;
     margin-bottom: 1.75rem;
-    background: #F9FAFB;
+    background: #18181B;
     border: 1px solid var(--border-card);
     padding: 0.75rem 1rem;
     border-radius: 6px;
@@ -328,9 +329,10 @@ body {
 .toggle-group {
     display: flex;
     gap: 0.25rem;
-    background: #E5E7EB;
+    background: #27272A;
     padding: 0.2rem;
     border-radius: 6px;
+    border: 1px solid var(--border-card);
 }
 .btn-toggle {
     background: transparent;
@@ -348,12 +350,12 @@ body {
     color: var(--text-primary);
 }
 .btn-toggle.active {
-    background: #FFFFFF;
+    background: #18181B;
     color: var(--text-accent);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 #btn-mode-sync.active {
-    color: var(--color-red-600);
+    color: var(--color-red-500);
 }
 
 /* CONTROL CARD (SLIDER & PRESETS) */
@@ -375,7 +377,7 @@ body {
     appearance: none;
     height: 6px;
     border-radius: 3px;
-    background: #E5E7EB;
+    background: #3F3F46;
     outline: none;
 }
 .custom-slider::-webkit-slider-thumb {
@@ -384,15 +386,15 @@ body {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: var(--color-emerald-500);
-    border: 2px solid #FFFFFF;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    background: var(--color-amber-600);
+    border: 2px solid #18181B;
+    box-shadow: 0 0 8px rgba(217, 119, 6, 0.4);
     cursor: pointer;
     transition: transform 0.1s, background-color 0.2s;
 }
 .custom-slider::-webkit-slider-thumb:hover {
     transform: scale(1.15);
-    background-color: var(--color-emerald-600);
+    background-color: var(--color-amber-500);
 }
 .slider-ticks {
     display: flex;
@@ -442,21 +444,21 @@ body {
     position: relative;
     overflow: hidden;
     transition: border-color 0.3s, background-color 0.3s;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 .stat-card:hover {
-    border-color: #D1D5DB;
+    border-color: #52525B;
 }
 .stat-card.highlight-emerald {
     border-color: rgba(16, 185, 129, 0.3);
-    background: rgba(16, 185, 129, 0.02);
+    background: rgba(16, 185, 129, 0.03);
 }
 .stat-card.highlight-emerald:hover {
     border-color: rgba(16, 185, 129, 0.5);
 }
 .stat-card.highlight-red {
     border-color: rgba(239, 68, 68, 0.3);
-    background: rgba(239, 68, 68, 0.02);
+    background: rgba(239, 68, 68, 0.03);
 }
 .stat-card.highlight-red:hover {
     border-color: rgba(239, 68, 68, 0.5);
@@ -491,10 +493,10 @@ body {
     color: var(--text-secondary);
 }
 .text-emerald {
-    color: var(--color-emerald-700) !important;
+    color: var(--color-emerald-500) !important;
 }
 .text-red {
-    color: var(--color-red-600) !important;
+    color: var(--color-red-500) !important;
 }
 
 .stat-desc {
@@ -527,8 +529,8 @@ body {
     animation: pulse-emerald-anim 1.5s infinite;
 }
 .pulse-yellow {
-    background-color: var(--color-yellow-500);
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+    background-color: var(--color-amber-500);
+    box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.7);
     animation: pulse-yellow-anim 1.5s infinite;
 }
 .pulse-red {
@@ -541,7 +543,7 @@ body {
 .progress-bar-container {
     width: 100%;
     height: 4px;
-    background: #E5E7EB;
+    background: #3F3F46;
     border-radius: 2px;
     margin-top: 0.75rem;
     overflow: hidden;
@@ -563,7 +565,7 @@ body {
 .worker-chip {
     font-size: 0.65rem;
     font-weight: 600;
-    background: #F3F4F6;
+    background: #18181B;
     border: 1px solid var(--border-card);
     color: var(--text-secondary);
     padding: 0.15rem 0.4rem;
@@ -573,8 +575,8 @@ body {
     opacity: 0.4;
 }
 .worker-chip.active {
-    background: rgba(139, 92, 246, 0.08);
-    border-color: rgba(139, 92, 246, 0.3);
+    background: rgba(139, 92, 246, 0.1);
+    border-color: rgba(139, 92, 246, 0.4);
     color: var(--color-purple-500);
     opacity: 1;
 }
@@ -624,7 +626,7 @@ body {
 .canvas-container {
     width: 100%;
     position: relative;
-    background: #FFFFFF;
+    background: #18181B;
     border: 1px solid var(--border-card);
     border-radius: 6px;
     padding: 0.5rem;
@@ -670,12 +672,12 @@ body {
     padding: 24px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .svg-wrapper {
     width: 100%;
-    background: #FAFAFA;
+    background: #18181B;
     border-radius: 6px;
     border: 1px solid var(--border-card);
     padding: 1rem;
@@ -701,9 +703,9 @@ body {
     transition: stroke 0.2s, fill 0.2s;
 }
 
-/* CODE INTERACTIVE CARD (LIGHT SYNTAX THEME) */
+/* CODE INTERACTIVE CARD (DARK SYNTAX THEME) */
 .code-card {
-    background: #FFFFFF;
+    background: #27272A;
 }
 .code-header {
     display: flex;
@@ -717,7 +719,7 @@ body {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 600;
-    background: #F3F4F6;
+    background: #18181B;
     padding: 0.15rem 0.5rem;
     border-radius: 4px;
     color: var(--text-secondary);
@@ -727,7 +729,7 @@ body {
     font-size: 0.825rem;
     overflow-x: auto;
     padding: 0.5rem;
-    background: #F9FAFB;
+    background: #18181B;
     border: 1px solid var(--border-card);
     border-radius: 6px;
     max-height: 380px;
@@ -737,20 +739,20 @@ pre {
     margin: 0;
 }
 code {
-    color: #1F2937;
+    color: #E4E4E7;
 }
 
-/* Code highlight tokens (high contrast) */
-.keyword { color: #A21CAF; font-weight: 600; } /* Purple */
-.string { color: #047857; }                   /* Emerald */
-.comment { color: #9CA3AF; font-style: italic; } /* Muted Gray */
-.function { color: #1D4ED8; }                 /* Blue */
+/* Code highlight tokens (dark theme) */
+.keyword { color: #F472B6; font-weight: 600; } /* Light Pink */
+.string { color: #34D399; }                   /* Bright Emerald */
+.comment { color: #71717A; font-style: italic; } /* Zinc Muted */
+.function { color: #60A5FA; }                 /* Light Blue */
 
 .code-explain {
     margin-top: 1.25rem;
     padding: 1rem;
-    background: #F9FAFB;
-    border-left: 3px solid var(--color-emerald-500);
+    background: #18181B;
+    border-left: 3px solid var(--color-amber-600);
     border-radius: 0 6px 6px 0;
 }
 .explain-title {
@@ -816,7 +818,7 @@ code {
     border: 1px solid var(--border-card);
     border-radius: 8px;
     padding: 2rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 .form-group {
     margin-bottom: 1.25rem;
@@ -833,8 +835,8 @@ code {
 }
 .form-group input, .form-group textarea {
     width: 100%;
-    background: #FFFFFF;
-    border: 1px solid #D1D5DB;
+    background: #18181B;
+    border: 1px solid var(--border-card);
     border-radius: 6px;
     padding: 0.75rem;
     color: var(--text-primary);
@@ -844,14 +846,14 @@ code {
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 .form-group input:focus, .form-group textarea:focus {
-    border-color: var(--color-emerald-500);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+    border-color: var(--color-amber-600);
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2);
 }
 
 .alert-success {
-    background: rgba(16, 185, 129, 0.08);
+    background: rgba(16, 185, 129, 0.1);
     border: 1px solid rgba(16, 185, 129, 0.2);
-    color: var(--color-emerald-700);
+    color: var(--color-emerald-500);
     padding: 0.75rem 1rem;
     border-radius: 6px;
     margin-top: 1.25rem;
@@ -896,9 +898,9 @@ code {
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }
 @keyframes pulse-yellow-anim {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 119, 6, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 119, 6, 0); }
 }
 @keyframes pulse-red-anim {
     0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
