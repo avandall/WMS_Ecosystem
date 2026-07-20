@@ -436,7 +436,7 @@ function drawLine(data, strokeStyle, fillStyle, lineWidth) {
     ctx.fill();
 }
 
-// CONTACT FORM SUBMISSION (REAL EMAIL INITIATION VIA MAILTO)
+// CONTACT FORM SUBMISSION (REAL EMAIL VIA FORMSPREE AJAX)
 function handleFormSubmit(event) {
     event.preventDefault();
     const name = document.getElementById('form-name').value;
@@ -447,36 +447,47 @@ function handleFormSubmit(event) {
     const successAlert = document.getElementById('form-success-alert');
     
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Preparing Email...';
+    submitBtn.textContent = 'Sending Message...';
     
-    // Construct email subject and body
-    const subject = encodeURIComponent(`WMS Portfolio: Contact from ${name}`);
-    const body = encodeURIComponent(
-        `Hi Avandall,\n\n` +
-        `I found your WMS Ingestion Platform portfolio and wanted to reach out.\n\n` +
-        `Sender Details:\n` +
-        `- Name: ${name}\n` +
-        `- Contact Email: ${email}\n\n` +
-        `Message:\n` +
-        `${message}\n\n` +
-        `Best regards,\n` +
-        `${name}`
-    );
-    
-    // Open default mail client
-    window.location.href = `mailto:avannguyen.nina@gmail.com?subject=${subject}&body=${body}`;
-    
-    setTimeout(() => {
-        submitBtn.textContent = 'Email client opened!';
+    // Post to Formspree endpoint (keyless, activation via first email)
+    fetch("https://formspree.io/avannguyen.nina@gmail.com", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message,
+            _subject: `WMS Portfolio: Contact from ${name}`
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+            submitBtn.textContent = 'Message Sent!';
+            successAlert.className = 'alert-success';
+            successAlert.textContent = '✓ Message sent successfully! I will get back to you soon.';
+            document.getElementById('contact-form').reset();
+        } else {
+            throw new Error('Formspree response not ok');
+        }
+    })
+    .catch(error => {
+        console.error("Error sending email:", error);
+        submitBtn.textContent = 'Error sending';
         successAlert.className = 'alert-success';
-        successAlert.textContent = '✓ Default mail client opened with pre-filled message!';
-        
-        document.getElementById('contact-form').reset();
-        
+        successAlert.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
+        successAlert.style.borderColor = 'rgba(239, 68, 68, 0.2)';
+        successAlert.style.color = 'var(--color-red-500)';
+        successAlert.textContent = '✗ Failed to send. Please click the "Send Direct Email" button above.';
+    })
+    .finally(() => {
         setTimeout(() => {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Send Message';
             successAlert.className = 'alert-success style-hidden';
-        }, 3000);
-    }, 800);
+            successAlert.removeAttribute('style'); // Reset inline styles
+        }, 4000);
+    });
 }
