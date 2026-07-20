@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IoT Ingestion Pipeline | Smart Warehouse Benchmark</title>
+    <title>High-Throughput Async Ingestion Engine | Portfolio</title>
     <meta name="description" content="A live performance benchmark comparing Synchronous and Asynchronous ingestion pipelines. Built to prove system efficiency and zero data loss architecture under peak load.">
-    <!-- Google Fonts: Inter & Fira Code -->
+    <!-- Google Fonts: Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,14 +17,14 @@
     <header class="header">
         <div class="logo">
             <span class="logo-icon">⚡</span>
-            <span class="logo-text">IOT.INGESTION</span>
+            <span class="logo-text">WMS.INGEST</span>
         </div>
         <nav class="nav">
             <a href="#benchmark" class="nav-link">Live Benchmark</a>
             <a href="#architecture" class="nav-link">Architecture</a>
             <a href="#code" class="nav-link">Source Code</a>
         </nav>
-        <a href="mailto:avandall1999@gmail.com?subject=Technical%20Interview%3A%20Backend%20Intern%20-%20Async%20Pipeline&body=Hi%2C%20I%20checked%20out%20your%20real-time%20async%20pipeline%20portfolio%20and%20ran%20some%20benchmarks%20on%20it.%20I'd%20love%20to%20invite%20you%20for%20a%20technical%20chat.%20Let%20me%20know%20your%20availability%21" id="cta-header-btn" class="btn btn-primary btn-glow">Email Me</a>
+        <a href="mailto:avandall1999@gmail.com?subject=Technical%20Interview%3A%20Backend%20Engineer%20-%20Async%20Pipeline&body=Hi%20Avandall%2C%0A%0AI%20checked%20out%20your%20real-time%20async%20pipeline%20portfolio%20and%20ran%20some%20benchmarks%20on%20it.%20I'd%20love%20to%20invite%20you%20for%20a%20technical%20chat%20to%20discuss%20our%20data%20ingestion%20pipelines.%0A%0ALet%20me%20know%20your%20availability%20next%20week.%0A%0ABest%20regards%2C%0A[Name]%0A[Company]" id="cta-header-btn" class="btn btn-primary">Email Me</a>
     </header>
 
     <main class="container">
@@ -33,9 +33,9 @@
         <section id="benchmark" class="section hero-section">
             <div class="hero-content">
                 <span class="badge badge-accent">IoT Data Ingestion Platform</span>
-                <h1 class="hero-title">IoT Ingestion for Smart Warehousing</h1>
+                <h1 class="hero-title">I build resilient async pipelines and message queues for high-throughput data streaming—preventing event drops during peak traffic spikes.</h1>
                 <p class="hero-subtitle">
-                    How do you ingest telemetry feeds from 50,000 barcode scanners and autonomous robots during a Megasale without dropping events? Compare synchronous direct-to-database writes against asynchronous queue buffering below.
+                    I am a backend developer specializing in asynchronous pipelines and message queues for high-throughput data streaming. I build these systems for Tech Leads at AI analytics companies who need to prevent event drops during traffic spikes.
                 </p>
             </div>
 
@@ -50,7 +50,7 @@
                             📥 Download Stress-Test Script
                         </a>
                     </div>
-                    <p class="card-desc">Stress-test the ingestion pipelines and audit system behavior under heavy load.</p>
+                    <p class="card-desc">Stress-test the ingestion pipelines and audit system behavior under heavy simulated load.</p>
                     
                     <!-- Toggle Switch for Sync vs Async -->
                     <div class="mode-select-container">
@@ -191,81 +191,77 @@
                             <!-- Grid background -->
                             <defs>
                                 <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(0,0,0,0.03)" stroke-width="1"/>
                                 </pattern>
-                                <linearGradient id="neonGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stop-color="#8b5cf6" />
-                                    <stop offset="100%" stop-color="#06b6d4" />
-                                </linearGradient>
                             </defs>
                             <rect width="100%" height="100%" fill="url(#grid)" rx="8" />
 
                             <!-- Connecting paths -->
                             <!-- Source to Gateway -->
-                            <path d="M 90 160 L 190 160" stroke="#4b5563" stroke-width="3" fill="none" id="path1"/>
+                            <path d="M 90 160 L 190 160" stroke="#D1D5DB" stroke-width="3" fill="none" id="path1"/>
                             <!-- Gateway to Broker (Queue) / Gateway to DB (Sync path) -->
-                            <path d="M 270 160 L 370 160" stroke="#4b5563" stroke-width="3" fill="none" id="path2"/>
+                            <path d="M 270 160 L 370 160" stroke="#D1D5DB" stroke-width="3" fill="none" id="path2"/>
                             
                             <!-- Broker to Workers -->
-                            <path d="M 450 160 L 510 100" stroke="#4b5563" stroke-width="2" fill="none" id="path-worker1"/>
-                            <path d="M 450 160 L 510 160" stroke="#4b5563" stroke-width="2" fill="none" id="path-worker2"/>
-                            <path d="M 450 160 L 510 220" stroke="#4b5563" stroke-width="2" fill="none" id="path-worker3"/>
+                            <path d="M 450 160 L 510 100" stroke="#D1D5DB" stroke-width="2" fill="none" id="path-worker1"/>
+                            <path d="M 450 160 L 510 160" stroke="#D1D5DB" stroke-width="2" fill="none" id="path-worker2"/>
+                            <path d="M 450 160 L 510 220" stroke="#D1D5DB" stroke-width="2" fill="none" id="path-worker3"/>
                             
                             <!-- Workers to Postgres -->
-                            <path d="M 590 100 L 640 140" stroke="#4b5563" stroke-width="2" fill="none" id="path-db1"/>
-                            <path d="M 590 160 L 640 160" stroke="#4b5563" stroke-width="2" fill="none" id="path-db2"/>
-                            <path d="M 590 220 L 640 180" stroke="#4b5563" stroke-width="2" fill="none" id="path-db3"/>
+                            <path d="M 590 100 L 640 140" stroke="#D1D5DB" stroke-width="2" fill="none" id="path-db1"/>
+                            <path d="M 590 160 L 640 160" stroke="#D1D5DB" stroke-width="2" fill="none" id="path-db2"/>
+                            <path d="M 590 220 L 640 180" stroke="#D1D5DB" stroke-width="2" fill="none" id="path-db3"/>
 
                             <!-- Dynamic Animated Ingestion Particles -->
-                            <circle r="4" fill="#06b6d4" id="particle-ingest" style="offset-path: path('M 90 160 L 190 160'); animation: moveParticle 1s infinite linear;"></circle>
-                            <circle r="4" fill="#8b5cf6" id="particle-queue" style="offset-path: path('M 270 160 L 370 160'); animation: moveParticle 0.8s infinite linear;"></circle>
+                            <circle r="5" fill="#047857" id="particle-ingest" style="offset-path: path('M 90 160 L 190 160'); animation: moveParticle 1s infinite linear;"></circle>
+                            <circle r="5" fill="#10B981" id="particle-queue" style="offset-path: path('M 270 160 L 370 160'); animation: moveParticle 0.8s infinite linear;"></circle>
 
                             <!-- Node 1: Ingress Load -->
                             <g transform="translate(40, 120)">
-                                <rect width="100" height="80" rx="8" fill="rgba(30, 41, 59, 0.8)" stroke="#38bdf8" stroke-width="1.5" />
-                                <text x="50" y="35" text-anchor="middle" fill="#f8fafc" font-size="11" font-family="Inter" font-weight="600">50k robots &</text>
-                                <text x="50" y="50" text-anchor="middle" fill="#f8fafc" font-size="11" font-family="Inter" font-weight="600">IoT Sensors</text>
-                                <text x="50" y="70" text-anchor="middle" fill="#06b6d4" font-size="10" font-family="Fira Code" id="svg-load-text">10k req/s</text>
+                                <rect width="100" height="80" rx="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" />
+                                <text x="50" y="32" text-anchor="middle" fill="#111827" font-size="10" font-family="Inter" font-weight="600">50k robots &</text>
+                                <text x="50" y="47" text-anchor="middle" fill="#111827" font-size="10" font-family="Inter" font-weight="600">IoT Sensors</text>
+                                <text x="50" y="68" text-anchor="middle" fill="#047857" font-size="11" font-family="JetBrains Mono" font-weight="600" id="svg-load-text">10k req/s</text>
                             </g>
 
                             <!-- Node 2: API Gateway -->
                             <g transform="translate(190, 120)">
-                                <rect width="80" height="80" rx="8" fill="rgba(30, 41, 59, 0.8)" stroke="#a855f7" stroke-width="1.5" />
-                                <text x="40" y="40" text-anchor="middle" fill="#f8fafc" font-size="11" font-family="Inter" font-weight="600">API Gateway</text>
-                                <text x="40" y="60" text-anchor="middle" fill="#e9d5ff" font-size="9" font-family="Fira Code" id="svg-gateway-mode">Async Mode</text>
+                                <rect width="80" height="80" rx="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" />
+                                <text x="40" y="35" text-anchor="middle" fill="#111827" font-size="10" font-family="Inter" font-weight="600">API Gateway</text>
+                                <text x="40" y="58" text-anchor="middle" fill="#047857" font-size="9" font-family="JetBrains Mono" font-weight="600" id="svg-gateway-mode">Async Mode</text>
                             </g>
 
                             <!-- Node 3: Message Queue / Redis Streams -->
                             <g transform="translate(370, 120)" id="svg-queue-node">
-                                <rect width="80" height="80" rx="8" fill="rgba(30, 41, 59, 0.8)" stroke="#d946ef" stroke-width="1.5" />
-                                <text x="40" y="35" text-anchor="middle" fill="#f8fafc" font-size="11" font-family="Inter" font-weight="600">Redis</text>
-                                <text x="40" y="50" text-anchor="middle" fill="#f8fafc" font-size="11" font-family="Inter" font-weight="600">Streams</text>
-                                <text x="40" y="70" text-anchor="middle" fill="#f472b6" font-size="10" font-family="Fira Code" id="svg-queue-depth">0 buffered</text>
+                                <rect width="80" height="80" rx="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" />
+                                <text x="40" y="32" text-anchor="middle" fill="#111827" font-size="10" font-family="Inter" font-weight="600">Redis</text>
+                                <text x="40" y="47" text-anchor="middle" fill="#111827" font-size="10" font-family="Inter" font-weight="600">Streams</text>
+                                <text x="40" y="68" text-anchor="middle" fill="#047857" font-size="10" font-family="JetBrains Mono" font-weight="600" id="svg-queue-depth">0 buffered</text>
                             </g>
 
                             <!-- Node 4: Async Worker Pool -->
                             <!-- Worker 1 -->
                             <g transform="translate(510, 75)" id="svg-worker-node1">
-                                <rect width="80" height="50" rx="6" fill="rgba(30, 41, 59, 0.8)" stroke="#10b981" stroke-width="1.5" class="worker-node-rect" />
-                                <text x="40" y="30" text-anchor="middle" fill="#f8fafc" font-size="10" font-family="Inter" font-weight="600">Worker 1</text>
+                                <rect width="80" height="50" rx="6" fill="#FFFFFF" stroke="#10b981" stroke-width="1.5" class="worker-node-rect" />
+                                <text x="40" y="30" text-anchor="middle" fill="#111827" font-size="9" font-family="Inter" font-weight="600">Worker 1</text>
                             </g>
                             <!-- Worker 2 -->
-                            <g transform="translate(510, 135)" id="svg-worker-node2" style="opacity: 0.3;">
-                                <rect width="80" height="50" rx="6" fill="rgba(30, 41, 59, 0.8)" stroke="#6b7280" stroke-width="1" class="worker-node-rect" />
-                                <text x="40" y="30" text-anchor="middle" fill="#9ca3af" font-size="10" font-family="Inter">Worker 2</text>
+                            <g transform="translate(510, 135)" id="svg-worker-node2" style="opacity: 0.35;">
+                                <rect width="80" height="50" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" class="worker-node-rect" />
+                                <text x="40" y="30" text-anchor="middle" fill="#4B5563" font-size="9" font-family="Inter">Worker 2</text>
                             </g>
                             <!-- Worker 3 -->
-                            <g transform="translate(510, 195)" id="svg-worker-node3" style="opacity: 0.3;">
-                                <rect width="80" height="50" rx="6" fill="rgba(30, 41, 59, 0.8)" stroke="#6b7280" stroke-width="1" class="worker-node-rect" />
-                                <text x="40" y="30" text-anchor="middle" fill="#9ca3af" font-size="10" font-family="Inter">Worker 3</text>
+                            <g transform="translate(510, 195)" id="svg-worker-node3" style="opacity: 0.35;">
+                                <rect width="80" height="50" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" class="worker-node-rect" />
+                                <text x="40" y="30" text-anchor="middle" fill="#4B5563" font-size="9" font-family="Inter">Worker 3</text>
                             </g>
 
                             <!-- Node 5: Database (Postgres) -->
                             <g transform="translate(640, 120)">
-                                <path d="M 0 10 C 0 0, 50 0, 50 10 L 50 60 C 50 70, 0 70, 0 60 Z" fill="rgba(30, 41, 59, 0.8)" stroke="#eab308" stroke-width="1.5" />
-                                <path d="M 0 10 C 0 20, 50 20, 50 10" fill="none" stroke="#eab308" stroke-width="1.5" />
-                                <path d="M 0 25 C 0 35, 50 35, 50 25" fill="none" stroke="#eab308" stroke-width="1.5" />
-                                <text x="25" y="45" text-anchor="middle" fill="#f8fafc" font-size="10" font-family="Inter" font-weight="600">Postgres</text>
+                                <path d="M 0 10 C 0 0, 50 0, 50 10 L 50 60 C 50 70, 0 70, 0 60 Z" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1.5" />
+                                <path d="M 0 10 C 0 20, 50 20, 50 10" fill="none" stroke="#D1D5DB" stroke-width="1.5" />
+                                <path d="M 0 25 C 0 35, 50 35, 50 25" fill="none" stroke="#D1D5DB" stroke-width="1.5" />
+                                <text x="25" y="45" text-anchor="middle" fill="#111827" font-size="9" font-family="Inter" font-weight="600">Postgres</text>
                             </g>
                         </svg>
                     </div>
@@ -331,13 +327,13 @@ GROUP_NAME = <span class="string">"ingest_workers"</span>
                 <div class="contact-info">
                     <h2 class="contact-title">Let's build resilient backends together</h2>
                     <p class="contact-desc">
-                        Looking for an intern who understands system throughput, message queues, auto-scaling thresholds, and fault-tolerance? I can start helping your team resolve these bottlenecks immediately.
+                        Looking for an engineer who understands system throughput, message queues, auto-scaling thresholds, and fault-tolerance? I can start helping your team resolve these bottlenecks immediately.
                     </p>
                     <div class="contact-quick-links">
-                        <a href="mailto:avandall1999@gmail.com?subject=Technical%20Interview%3A%20Backend%20Intern%20-%20Async%20Pipeline&body=Hi%2C%20I%20checked%20out%20your%20real-time%20async%20pipeline%20portfolio%20and%20ran%20some%20benchmarks%20on%20it.%20I'd%20love%20to%20invite%20you%20for%20a%20technical%20chat.%20Let%20me%20know%20your%20availability%21" class="btn btn-primary btn-glow">
+                        <a href="mailto:avandall1999@gmail.com?subject=Technical%20Interview%3A%20Backend%20Engineer%20-%20Async%20Pipeline&body=Hi%20Avandall%2C%0A%0AI%20checked%20out%20your%20real-time%20async%20pipeline%20portfolio%20and%20ran%20some%20benchmarks%20on%20it.%20I'd%20love%20to%20invite%20you%20for%20a%20technical%20chat%20to%20discuss%20our%20data%20ingestion%20pipelines.%0A%0ALet%20me%20know%20your%20availability%20next%20week.%0A%0ABest%20regards%2C%0A[Name]%0A[Company]" class="btn btn-primary">
                             <span>📧</span> Send Direct Email
                         </a>
-                        <a href="https://github.com/avandall1999" target="_blank" class="btn btn-secondary">
+                        <a href="https://github.com/avandall" target="_blank" class="btn btn-secondary">
                             <span>💻</span> GitHub Profile
                         </a>
                     </div>
@@ -374,7 +370,7 @@ GROUP_NAME = <span class="string">"ingest_workers"</span>
 
     <!-- Footer -->
     <footer class="footer-bottom">
-        <p>&copy; 2026 Developer Portfolio. Handcrafted in HTML/CSS/JS for sub-second page loads.</p>
+        <p>&copy; 2026 Developer Portfolio. Handcrafted in HTML/CSS/JS with zero clutter for sub-second page loads.</p>
     </footer>
 
     <script src="script.js"></script>

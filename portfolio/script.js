@@ -100,7 +100,7 @@ function toggleMode(asyncMode) {
         // Restore SVG Elements
         svgQueueNode.style.opacity = '1';
         svgGatewayModeText.textContent = 'Async Mode';
-        svgGatewayModeText.setAttribute('fill', '#a855f7');
+        svgGatewayModeText.setAttribute('fill', '#047857');
         
         // Reset Dropped
         totalDropped = 0;
@@ -124,7 +124,7 @@ function toggleMode(asyncMode) {
         // Update SVG Elements to show sync connection bypasses queue
         svgQueueNode.style.opacity = '0.15';
         svgGatewayModeText.textContent = 'Sync Mode';
-        svgGatewayModeText.setAttribute('fill', '#ef4444');
+        svgGatewayModeText.setAttribute('fill', '#EF4444');
         svgQueueDepthText.textContent = 'N/A (Bypassed)';
         
         // Enable Dropped in chart legend
@@ -210,13 +210,13 @@ function simulationTick() {
         queueBarFill.style.width = `${queueRatio}%`;
         if (queueRatio < 15) {
             queueIndicator.className = 'stat-indicator pulse-emerald';
-            queueBarFill.style.backgroundColor = 'var(--color-emerald)';
+            queueBarFill.style.backgroundColor = 'var(--color-emerald-500)';
         } else if (queueRatio < 55) {
             queueIndicator.className = 'stat-indicator pulse-yellow';
-            queueBarFill.style.backgroundColor = 'var(--color-yellow)';
+            queueBarFill.style.backgroundColor = 'var(--color-yellow-500)';
         } else {
             queueIndicator.className = 'stat-indicator pulse-red';
-            queueBarFill.style.backgroundColor = 'var(--color-red)';
+            queueBarFill.style.backgroundColor = 'var(--color-red-500)';
         }
         
         svgQueueDepthText.textContent = `${formatNumber(Math.round(currentQueueSize))} buffered`;
@@ -283,12 +283,12 @@ function simulationTick() {
         }
         
         // Reset worker UI
-        workerChipsContainer.innerHTML = `<span class="worker-chip active" style="border-color: var(--color-red); color: var(--color-red); background: rgba(239,68,68,0.08);">Sync Thread</span>`;
+        workerChipsContainer.innerHTML = `<span class="worker-chip active" style="border-color: var(--color-red-600); color: var(--color-red-600); background: var(--color-red-500-alpha);">Sync Thread</span>`;
         
         // Reset SVG Node opacity
         workerNode1.style.opacity = '1';
-        workerNode1.querySelector('.worker-node-rect').style.stroke = 'var(--color-red)';
-        workerNode1.querySelector('.worker-node-rect').style.fill = 'rgba(239, 68, 68, 0.08)';
+        workerNode1.querySelector('.worker-node-rect').style.stroke = 'var(--color-red-500)';
+        workerNode1.querySelector('.worker-node-rect').style.fill = 'var(--color-red-500-alpha)';
         workerNode2.style.opacity = '0.05';
         workerNode3.style.opacity = '0.05';
     }
@@ -318,31 +318,31 @@ function updateWorkerChips() {
 function updateSvgWorkerNodes() {
     if (activeWorkers >= 1) {
         workerNode1.style.opacity = '1';
-        workerNode1.querySelector('.worker-node-rect').style.stroke = 'var(--color-emerald)';
-        workerNode1.querySelector('.worker-node-rect').style.fill = 'rgba(16, 185, 129, 0.1)';
+        workerNode1.querySelector('.worker-node-rect').style.stroke = 'var(--color-emerald-500)';
+        workerNode1.querySelector('.worker-node-rect').style.fill = 'rgba(16, 185, 129, 0.04)';
     } else {
-        workerNode1.style.opacity = '0.3';
+        workerNode1.style.opacity = '0.35';
     }
 
     if (activeWorkers >= 2) {
         workerNode2.style.opacity = '1';
-        workerNode2.querySelector('.worker-node-rect').style.stroke = 'var(--color-purple)';
-        workerNode2.querySelector('.worker-node-rect').style.fill = 'rgba(139, 92, 246, 0.1)';
+        workerNode2.querySelector('.worker-node-rect').style.stroke = 'var(--color-purple-500)';
+        workerNode2.querySelector('.worker-node-rect').style.fill = 'rgba(139, 92, 246, 0.04)';
     } else {
-        workerNode2.style.opacity = '0.3';
-        workerNode2.querySelector('.worker-node-rect').style.stroke = '#6b7280';
-        workerNode2.querySelector('.worker-node-rect').style.fill = 'rgba(30, 41, 59, 0.8)';
+        workerNode2.style.opacity = '0.35';
+        workerNode2.querySelector('.worker-node-rect').style.stroke = '#E5E7EB';
+        workerNode2.querySelector('.worker-node-rect').style.fill = '#FFFFFF';
     }
 
     if (activeWorkers >= 4) {
         workerNode3.style.opacity = '1';
-        workerNode3.querySelector('.worker-node-rect').style.stroke = 'var(--color-pink)';
-        workerNode3.querySelector('.worker-node-rect').style.fill = 'rgba(217, 70, 239, 0.1)';
+        workerNode3.querySelector('.worker-node-rect').style.stroke = 'var(--color-pink-500)';
+        workerNode3.querySelector('.worker-node-rect').style.fill = 'rgba(217, 70, 239, 0.04)';
         workerNode3.querySelector('text').textContent = `W3 - W${activeWorkers}`;
     } else {
-        workerNode3.style.opacity = '0.3';
-        workerNode3.querySelector('.worker-node-rect').style.stroke = '#6b7280';
-        workerNode3.querySelector('.worker-node-rect').style.fill = 'rgba(30, 41, 59, 0.8)';
+        workerNode3.style.opacity = '0.35';
+        workerNode3.querySelector('.worker-node-rect').style.stroke = '#E5E7EB';
+        workerNode3.querySelector('.worker-node-rect').style.fill = '#FFFFFF';
         workerNode3.querySelector('text').textContent = 'Worker 3';
     }
 }
@@ -367,7 +367,7 @@ function drawChart() {
     ctx.clearRect(0, 0, width, height);
     
     // Draw Grid Lines
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.04)';
     ctx.lineWidth = 1;
     const gridRows = 4;
     const gridCols = 10;
@@ -389,8 +389,8 @@ function drawChart() {
         ctx.stroke();
     }
 
-    // Draw Line 1 (Ingress - Cyan)
-    drawLine(ingressHistory, 'rgba(6, 182, 212, 0.85)', 'rgba(6, 182, 212, 0.03)', 3);
+    // Draw Line 1 (Ingress - Blue)
+    drawLine(ingressHistory, 'rgba(59, 130, 246, 0.85)', 'rgba(59, 130, 246, 0.03)', 3);
     
     // Draw Line 2 (Processing - Purple/Emerald)
     const procColor = isAsyncMode ? 'rgba(139, 92, 246, 0.85)' : 'rgba(16, 185, 129, 0.85)';
@@ -399,7 +399,7 @@ function drawChart() {
     
     // Draw Line 3 (Dropped - Red) only in Sync Mode
     if (!isAsyncMode) {
-        drawLine(droppedHistory, 'rgba(239, 68, 68, 0.85)', 'rgba(239, 68, 68, 0.08)', 2.5);
+        drawLine(droppedHistory, 'rgba(239, 68, 68, 0.85)', 'rgba(239, 68, 68, 0.04)', 2.5);
     }
     
     requestAnimationFrame(drawChart);

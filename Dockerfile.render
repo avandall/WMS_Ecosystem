@@ -18,6 +18,7 @@ WORKDIR /app
 
 # Copy WMS_Core code (which includes the shared-utils submodule inside Libraries)
 COPY WMS_Core ./WMS_Core
+COPY portfolio ./portfolio
 
 # Install core uvicorn/fastapi dependencies and local shared-utils package
 RUN --mount=type=cache,target=/root/.cache/uv \
