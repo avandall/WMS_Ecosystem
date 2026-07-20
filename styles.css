@@ -92,23 +92,18 @@ body {
 }
 
 .logo {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     font-family: var(--font-mono);
     font-weight: 700;
-    font-size: 1.2rem;
-    letter-spacing: 1.5px;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
-}
-.logo-primary {
-    color: var(--text-primary);
-}
-.logo-secondary {
-    color: var(--text-accent);
-}
-.logo::after {
-    content: '.';
-    color: var(--text-accent);
+    
+    background: linear-gradient(135deg, #F4F4F5 20%, #F59E0B 65%, #D97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .nav {
