@@ -94,16 +94,21 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
     font-family: var(--font-mono);
     font-weight: 700;
-    letter-spacing: -0.5px;
+    font-size: 1.2rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
-.logo-prompt {
+.logo-primary {
+    color: var(--text-primary);
+}
+.logo-secondary {
     color: var(--text-accent);
 }
-.logo-text {
-    color: var(--text-primary);
+.logo::after {
+    content: '.';
+    color: var(--text-accent);
 }
 
 .nav {
@@ -912,3 +917,28 @@ code {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.4; }
 }
+
+/* Toast Notification */
+.toast-message {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-card);
+    color: var(--text-primary);
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+}
+.toast-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+

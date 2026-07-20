@@ -449,19 +449,19 @@ function handleFormSubmit(event) {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending Message...';
     
-    // Post to Formspree endpoint (keyless, activation via first email)
+    // Construct FormData instead of JSON to prevent Formspree parse blocks
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("message", message);
+    formData.append("_subject", `WMS Portfolio: Contact from ${name}`);
+    
     fetch("https://formspree.io/avannguyen.nina@gmail.com", {
         method: "POST",
+        body: formData,
         headers: {
-            "Content-Type": "application/json",
             "Accept": "application/json"
-        },
-        body: JSON.stringify({
-            name: name,
-            email: email,
-            message: message,
-            _subject: `WMS Portfolio: Contact from ${name}`
-        })
+        }
     })
     .then(response => {
         if (response.ok) {
@@ -480,7 +480,7 @@ function handleFormSubmit(event) {
         successAlert.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
         successAlert.style.borderColor = 'rgba(239, 68, 68, 0.2)';
         successAlert.style.color = 'var(--color-red-500)';
-        successAlert.textContent = '✗ Failed to send. Please click the "Send Direct Email" button above.';
+        successAlert.textContent = '✗ Failed to send. Please click the "Copy Email Address" button above.';
     })
     .finally(() => {
         setTimeout(() => {
@@ -491,3 +491,30 @@ function handleFormSubmit(event) {
         }, 4000);
     });
 }
+
+// EMAIL CLIPBOARD COPY
+function copyEmailToClipboard(btn) {
+    const email = "avannguyen.nina@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+        showToast("✓ Email copied to clipboard!");
+        
+        // Also trigger mailto in background as helper
+        const mailtoLink = document.createElement('a');
+        mailtoLink.href = `mailto:${email}?subject=Technical%20Interview%3A%20Backend%20Engineer%20-%20Async%20Pipeline&body=Hi%20Avandall%2C%0D%0A%0D%0AI%20checked%20out%20your%20real-time%20async%20pipeline%20portfolio%20and%20ran%20some%20benchmarks%20on%20it.%20I'd%20love%20to%20invite%20you%20for%20a%20technical%20chat%20to%20discuss%20our%20data%20ingestion%20pipelines.%0D%0A%0D%0ALet%20me%20know%20your%20availability%20next%20week.%0D%0A%0D%0ABest%20regards%2C%0D%0A%5BName%5D%0D%0A%5BCompany%5D`;
+        mailtoLink.click();
+    }).catch(err => {
+        console.error("Clipboard copy failed:", err);
+        showToast(`Email: ${email}`);
+    });
+}
+
+// TOAST MESSAGE DISPLAY
+function showToast(message) {
+    const toast = document.getElementById('toast-message');
+    toast.textContent = message;
+    toast.className = 'toast-message show';
+    setTimeout(() => {
+        toast.className = 'toast-message style-hidden';
+    }, 3000);
+}
+
