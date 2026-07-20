@@ -436,18 +436,40 @@ function drawLine(data, strokeStyle, fillStyle, lineWidth) {
     ctx.fill();
 }
 
-// CONTACT FORM SUBMISSION
+// CONTACT FORM SUBMISSION (REAL EMAIL INITIATION VIA MAILTO)
 function handleFormSubmit(event) {
     event.preventDefault();
+    const name = document.getElementById('form-name').value;
+    const email = document.getElementById('form-email').value;
+    const message = document.getElementById('form-msg').value;
+    
     const submitBtn = document.getElementById('form-submit-btn');
     const successAlert = document.getElementById('form-success-alert');
     
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending Message...';
+    submitBtn.textContent = 'Preparing Email...';
+    
+    // Construct email subject and body
+    const subject = encodeURIComponent(`WMS Portfolio: Contact from ${name}`);
+    const body = encodeURIComponent(
+        `Hi Avandall,\n\n` +
+        `I found your WMS Ingestion Platform portfolio and wanted to reach out.\n\n` +
+        `Sender Details:\n` +
+        `- Name: ${name}\n` +
+        `- Contact Email: ${email}\n\n` +
+        `Message:\n` +
+        `${message}\n\n` +
+        `Best regards,\n` +
+        `${name}`
+    );
+    
+    // Open default mail client
+    window.location.href = `mailto:avannguyen.nina@gmail.com?subject=${subject}&body=${body}`;
     
     setTimeout(() => {
-        submitBtn.textContent = 'Message Sent!';
+        submitBtn.textContent = 'Email client opened!';
         successAlert.className = 'alert-success';
+        successAlert.textContent = '✓ Default mail client opened with pre-filled message!';
         
         document.getElementById('contact-form').reset();
         
@@ -456,5 +478,5 @@ function handleFormSubmit(event) {
             submitBtn.textContent = 'Send Message';
             successAlert.className = 'alert-success style-hidden';
         }, 3000);
-    }, 1200);
+    }, 800);
 }
