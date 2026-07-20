@@ -7,17 +7,17 @@
 * Small Labels / Captions / Badges: `JetBrains Mono` (Regular 400 / Uppercase)
   * Size: 12px–14px (0.75–0.875rem) | Letter-spacing: 0.05em
 
-### 2. Color Palette (Hex Codes & Contrast Rules)
-* Background: `#FAFAFA` (Near-white / Neutral 50)
-* Text (Primary): `#111827` (Near-black / Gray 900)
-* Text (Secondary / Muted): `#4B5563` (Gray 600)
-* Main Border / Divider: `#E5E7EB` (Gray 200)
-* Text Links & Text Accents: `#047857` (Emerald 700 — Adjusted for 4.6:1 WCAG PASS on light background)
-* Buttons / Solid Badge Fills: `#10B981` (Emerald 500 — paired with `#111827` dark text inside)
-* Button Hover / Active: `#059669` (Emerald 600)
+### 2. Color Palette (Hex Codes - Claude Dark Theme)
+* Background (Nền chính): `#18181B` (Zinc 900 — Nền xám đen tối giản, dịu mắt)
+* Surface / Card Background (Nền Card / Code Block): `#27272A` (Zinc 800)
+* Text (Primary - Chữ chính): `#F4F4F5` (Zinc 100 — Trắng ấm, không bị chói)
+* Text (Secondary / Muted): `#A1A1AA` (Zinc 400 — Xám trung tính cho mô tả/caption)
+* Main Border / Divider: `#3F3F46` (Zinc 700 — Đường viền mảnh, tinh tế)
+* Primary Accent (Màu nhấn Claude / CTA): `#D97706` (Amber 600 / Terracotta Warm Gold — Màu cam đất/vàng ấm đặc trưng)
+* Secondary Accent (Tín hiệu Benchmark / Success): `#10B981` (Emerald 500 — Giữ cho chỉ số Latency / Health check)
 
 ### 3. Layout & Breathing Room
 * Section Padding: Vertical `64px`–`80px` (4–5rem)
 * Content Gap / Element Spacing: `24px`–`32px` (1.5–2rem)
-* Card Padding: `24px` (1.5rem) with `1px solid #E5E7EB` border
-* Design Philosophy: Quiet, spacious frame; high contrast on data/benchmarks; zero clutter.
+* Card Padding: `24px` (1.5rem) with `1px solid #3F3F46` border & rounded-lg
+* Design Philosophy: Dark editorial terminal; high contrast code highlighting; calm & authoritative.

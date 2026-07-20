@@ -21,22 +21,28 @@ Gather List (Still Need to Gather):
 
 [ ] Pre-configured mailto: trigger link.
 
-2. Updated Identity Kit (Accessibility-Adjusted)
-- Typography:
-  - Heading / Metrics: JetBrains Mono (Bold 700 / SemiBold 600)
-  - Body Text: Inter (Regular 400 / Medium 500)
-  - Labels / Badges: JetBrains Mono (Regular 400 / Uppercase)
-- Color Palette (Hex Codes):
-  - Background: #FAFAFA (Near-white neutral)
-  - Text (Primary): #111827 (Near-black / 16.2:1 Contrast - PASS)
-  - Text (Secondary): #4B5563 (Muted gray / 7.1:1 Contrast - PASS)
-  - Borders / Cards: #E5E7EB (Subtle divider gray)
-  - Text Links & Text Accents: #047857 (Adjusted Emerald 700 / 4.6:1 Contrast - PASS for outdoor/mobile readability)
-  - Buttons / Badges Fill: #10B981 (Emerald 500 with #111827 text on top)
+# Visual Identity Kit — Backend Systems Portfolio (Dark Mode Edition)
 
-Style Note:
+### 1. Fonts (Google Fonts)
+* Heading & Metrics: JetBrains Mono (Bold / SemiBold)
+* Body Text: Inter (Regular / Medium)
 
-"Built on JetBrains Mono and Inter over a calm off-white background. Dark emerald green (#047857) highlights links clearly for low-vision readability, while bright emerald (#10B981) marks healthy benchmark metrics and primary buttons, keeping system data the focus."
+### 2. Palette (Claude Dark Style)
+* Background: #18181B (Dark Zinc)
+* Card / Code Surface: #27272A (Medium Zinc)
+* Primary Text: #F4F4F5 (Warm White)
+* Muted Text: #A1A1AA (Cool Gray)
+* Borders: #3F3F46 (Subtle Gray Border)
+* Accent Color: #D97706 (Warm Terracotta / Amber — Claude Style)
+* Status Metric Accent: #10B981 (Emerald Green)
+
+### 3. Logo / Favicon
+* Logo Text: "N." set in JetBrains Mono Bold (#F4F4F5)
+* Favicon: Dark square SVG (#18181B) with warm terracotta prompt `>_` (#D97706)
+
+### 4. Two-Line Style Note
+A dark editorial aesthetic inspired by Claude, built on JetBrains Mono and Inter over a Zinc-900 canvas (#18181B). Terracotta amber (#D97706) highlights key interactions and CTAs, providing a quiet, confident frame for benchmark metrics and code.
+
 
 3. Curated Image Set & Rejection Note
 
