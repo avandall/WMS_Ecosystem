@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>High-Throughput Async Ingestion Engine | Portfolio</title>
-    <meta name="description" content="A live performance benchmark comparing Synchronous and Asynchronous ingestion pipelines. Built to prove system efficiency and zero data loss architecture under peak load.">
+    <meta name="description"
+        content="A live performance benchmark comparing Synchronous and Asynchronous ingestion pipelines. Built to prove system efficiency and zero data loss architecture under peak load.">
     <!-- Google Fonts: Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
     <!-- Header Navigation -->
@@ -27,35 +32,41 @@
     </header>
 
     <main class="container">
-        
+
         <!-- SECTION 1: HERO & LIVE BENCHMARK -->
         <section id="benchmark" class="section hero-section">
             <div class="hero-content">
                 <span class="badge badge-accent">IoT Data Ingestion Platform</span>
-                <h1 class="hero-title">I build resilient async pipelines and message queues for high-throughput data streaming—preventing event drops during peak traffic spikes.</h1>
+                <h1 class="hero-title">I build resilient async pipelines and message queues for high-throughput data
+                    streaming—preventing event drops during peak traffic spikes.</h1>
                 <p class="hero-subtitle">
-                    I am a backend developer specializing in asynchronous pipelines and message queues for high-throughput data streaming. I build these systems for Tech Leads at AI analytics companies who need to prevent event drops during traffic spikes.
+                    I am a backend developer specializing in asynchronous pipelines and message queues for
+                    high-throughput data streaming. I build these systems for Tech Leads at AI analytics companies who
+                    need to prevent event drops during traffic spikes.
                 </p>
             </div>
 
             <!-- Dashboard Wrapper -->
             <div class="dashboard-wrapper" id="dashboard-container">
-                
+
                 <!-- Ingestion Load Controller (Slider, Modes & Presets) -->
                 <div class="dashboard-card control-card" id="main-control-card">
                     <div class="control-header">
                         <h3 class="card-title">Traffic Simulator Controller</h3>
-                        <a href="benchmark_stress_test.py" download="benchmark_stress_test.py" class="btn btn-secondary btn-sm" id="btn-download-script">
+                        <a href="benchmark_stress_test.py" download="benchmark_stress_test.py"
+                            class="btn btn-secondary btn-sm" id="btn-download-script">
                             📥 Download Stress-Test Script
                         </a>
                     </div>
-                    <p class="card-desc">Stress-test the ingestion pipelines and audit system behavior under heavy simulated load.</p>
-                    
+                    <p class="card-desc">Stress-test the ingestion pipelines and audit system behavior under heavy
+                        simulated load.</p>
+
                     <!-- Toggle Switch for Sync vs Async -->
                     <div class="mode-select-container">
                         <span class="control-label">Pipeline Architecture:</span>
                         <div class="toggle-group">
-                            <button type="button" class="btn btn-toggle active" id="btn-mode-async" onclick="toggleMode(true)">
+                            <button type="button" class="btn btn-toggle active" id="btn-mode-async"
+                                onclick="toggleMode(true)">
                                 Async Ingestion (Redis Streams)
                             </button>
                             <button type="button" class="btn btn-toggle" id="btn-mode-sync" onclick="toggleMode(false)">
@@ -66,9 +77,11 @@
 
                     <div class="slider-container">
                         <div class="slider-labels">
-                            <span class="slider-val-label">Concurrent IoT Rate: <span id="current-load-text">10,000</span> req/s</span>
+                            <span class="slider-val-label">Concurrent IoT Rate: <span
+                                    id="current-load-text">10,000</span> req/s</span>
                         </div>
-                        <input type="range" id="load-slider" min="1000" max="100000" step="1000" value="10000" class="custom-slider">
+                        <input type="range" id="load-slider" min="1000" max="100000" step="1000" value="10000"
+                            class="custom-slider">
                         <div class="slider-ticks">
                             <span>1k</span>
                             <span>25k</span>
@@ -80,9 +93,12 @@
 
                     <div class="presets-container">
                         <span class="presets-label">Load Presets:</span>
-                        <button type="button" class="btn btn-outline active" id="preset-idle" onclick="setPreset(1000, this)">Normal Operation (1k/s)</button>
-                        <button type="button" class="btn btn-outline" id="preset-med" onclick="setPreset(35000, this)">Megasale Spikes (35k/s)</button>
-                        <button type="button" class="btn btn-outline" id="preset-peak" onclick="setPreset(100000, this)">System Stress Peak (100k/s)</button>
+                        <button type="button" class="btn btn-outline active" id="preset-idle"
+                            onclick="setPreset(1000, this)">Normal Operation (1k/s)</button>
+                        <button type="button" class="btn btn-outline" id="preset-med"
+                            onclick="setPreset(35000, this)">Megasale Spikes (35k/s)</button>
+                        <button type="button" class="btn btn-outline" id="preset-peak"
+                            onclick="setPreset(100000, this)">System Stress Peak (100k/s)</button>
                     </div>
                 </div>
 
@@ -150,7 +166,8 @@
                             <span class="stat-title">Dropped Events</span>
                             <span class="badge badge-success" id="dropped-badge">100% Reliable</span>
                         </div>
-                        <div class="stat-value text-emerald" id="stat-dropped">0 <span class="stat-unit">events (0.00%)</span></div>
+                        <div class="stat-value text-emerald" id="stat-dropped">0 <span class="stat-unit">events
+                                (0.00%)</span></div>
                         <div class="stat-desc" id="dropped-desc">Absorbed by durable streams backpressure</div>
                     </div>
                 </div>
@@ -161,8 +178,10 @@
                         <h3 class="card-title">Live Pipeline Throughput</h3>
                         <div class="chart-legend">
                             <span class="legend-item"><span class="legend-color line-ingress"></span>Ingress Rate</span>
-                            <span class="legend-item"><span class="legend-color line-process"></span>Processing Rate</span>
-                            <span class="legend-item" id="legend-dropped-item" style="display:none;"><span class="legend-color line-dropped"></span>Dropped Events</span>
+                            <span class="legend-item"><span class="legend-color line-process"></span>Processing
+                                Rate</span>
+                            <span class="legend-item" id="legend-dropped-item" style="display:none;"><span
+                                    class="legend-color line-dropped"></span>Dropped Events</span>
                         </div>
                     </div>
                     <div class="canvas-container">
@@ -176,91 +195,122 @@
         <section id="architecture" class="section code-arch-section">
             <h2 class="section-title">Behind the Architecture</h2>
             <p class="section-subtitle">
-                To guarantee zero data loss during traffic spikes, a decoupled broker queues events. As queue buffer depth grows, the orchestrator dynamically scales async workers.
+                To guarantee zero data loss during traffic spikes, a decoupled broker queues events. As queue buffer
+                depth grows, the orchestrator dynamically scales async workers.
             </p>
 
             <div class="arch-grid">
                 <!-- SVG Interactive Architecture Diagram -->
                 <div class="arch-card">
                     <h3 class="card-title">Data Ingestion Dataflow</h3>
-                    <p class="card-desc">Move the slider above to see messages pulse through the pipeline in real-time!</p>
-                    
+                    <p class="card-desc">Move the slider above to see messages pulse through the pipeline in real-time!
+                    </p>
+
                     <div class="svg-wrapper">
                         <svg viewBox="0 0 700 320" class="arch-svg">
                             <!-- Grid background -->
                             <defs>
                                 <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1"/>
+                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.02)"
+                                        stroke-width="1" />
                                 </pattern>
                             </defs>
                             <rect width="100%" height="100%" fill="url(#grid)" rx="8" />
 
                             <!-- Connecting paths -->
                             <!-- Source to Gateway -->
-                            <path d="M 90 160 L 190 160" stroke="#3F3F46" stroke-width="3" fill="none" id="path1"/>
+                            <path d="M 90 160 L 190 160" stroke="#3F3F46" stroke-width="3" fill="none" id="path1" />
                             <!-- Gateway to Broker (Queue) / Gateway to DB (Sync path) -->
-                            <path d="M 270 160 L 370 160" stroke="#3F3F46" stroke-width="3" fill="none" id="path2"/>
-                            
+                            <path d="M 270 160 L 370 160" stroke="#3F3F46" stroke-width="3" fill="none" id="path2" />
+
                             <!-- Broker to Workers -->
-                            <path d="M 450 160 L 510 100" stroke="#3F3F46" stroke-width="2" fill="none" id="path-worker1"/>
-                            <path d="M 450 160 L 510 160" stroke="#3F3F46" stroke-width="2" fill="none" id="path-worker2"/>
-                            <path d="M 450 160 L 510 220" stroke="#3F3F46" stroke-width="2" fill="none" id="path-worker3"/>
-                            
+                            <path d="M 450 160 L 510 100" stroke="#3F3F46" stroke-width="2" fill="none"
+                                id="path-worker1" />
+                            <path d="M 450 160 L 510 160" stroke="#3F3F46" stroke-width="2" fill="none"
+                                id="path-worker2" />
+                            <path d="M 450 160 L 510 220" stroke="#3F3F46" stroke-width="2" fill="none"
+                                id="path-worker3" />
+
                             <!-- Workers to Postgres -->
-                            <path d="M 590 100 L 640 140" stroke="#3F3F46" stroke-width="2" fill="none" id="path-db1"/>
-                            <path d="M 590 160 L 640 160" stroke="#3F3F46" stroke-width="2" fill="none" id="path-db2"/>
-                            <path d="M 590 220 L 640 180" stroke="#3F3F46" stroke-width="2" fill="none" id="path-db3"/>
+                            <path d="M 590 100 L 640 140" stroke="#3F3F46" stroke-width="2" fill="none" id="path-db1" />
+                            <path d="M 590 160 L 640 160" stroke="#3F3F46" stroke-width="2" fill="none" id="path-db2" />
+                            <path d="M 590 220 L 640 180" stroke="#3F3F46" stroke-width="2" fill="none" id="path-db3" />
 
                             <!-- Dynamic Animated Ingestion Particles -->
-                            <circle r="5" fill="#D97706" id="particle-ingest" style="offset-path: path('M 90 160 L 190 160'); animation: moveParticle 1s infinite linear;"></circle>
-                            <circle r="5" fill="#10B981" id="particle-queue" style="offset-path: path('M 270 160 L 370 160'); animation: moveParticle 0.8s infinite linear;"></circle>
+                            <circle r="5" fill="#D97706" id="particle-ingest"
+                                style="offset-path: path('M 90 160 L 190 160'); animation: moveParticle 1s infinite linear;">
+                            </circle>
+                            <circle r="5" fill="#10B981" id="particle-queue"
+                                style="offset-path: path('M 270 160 L 370 160'); animation: moveParticle 0.8s infinite linear;">
+                            </circle>
 
                             <!-- Node 1: Ingress Load -->
                             <g transform="translate(40, 120)">
-                                <rect width="100" height="80" rx="8" fill="#27272A" stroke="#3F3F46" stroke-width="1.5" />
-                                <text x="50" y="30" text-anchor="middle" fill="#A1A1AA" font-size="11" font-family="Inter" font-weight="500">50k robots &</text>
-                                <text x="50" y="45" text-anchor="middle" fill="#A1A1AA" font-size="11" font-family="Inter" font-weight="500">IoT Sensors</text>
-                                <text x="50" y="68" text-anchor="middle" fill="#D97706" font-size="12" font-family="JetBrains Mono" font-weight="600" id="svg-load-text">10k req/s</text>
+                                <rect width="105" height="80" rx="8" fill="#27272A" stroke="#3F3F46"
+                                    stroke-width="1.5" />
+                                <text x="52.5" y="30" text-anchor="middle" fill="#38BDF8" font-size="12"
+                                    font-family="Inter" font-weight="600">50k robots &</text>
+                                <text x="52.5" y="46" text-anchor="middle" fill="#38BDF8" font-size="12"
+                                    font-family="Inter" font-weight="600">IoT Sensors</text>
+                                <text x="52.5" y="68" text-anchor="middle" fill="#D97706" font-size="13"
+                                    font-family="JetBrains Mono" font-weight="600" id="svg-load-text">10k req/s</text>
                             </g>
 
                             <!-- Node 2: API Gateway -->
-                            <g transform="translate(190, 120)">
-                                <rect width="80" height="80" rx="8" fill="#27272A" stroke="#3F3F46" stroke-width="1.5" />
-                                <text x="40" y="35" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">API Gateway</text>
-                                <text x="40" y="58" text-anchor="middle" fill="#D97706" font-size="11" font-family="JetBrains Mono" font-weight="600" id="svg-gateway-mode">Async Mode</text>
+                            <g transform="translate(185, 120)">
+                                <rect width="90" height="80" rx="8" fill="#27272A" stroke="#3F3F46"
+                                    stroke-width="1.5" />
+                                <text x="45" y="35" text-anchor="middle" fill="#38BDF8" font-size="12"
+                                    font-family="Inter" font-weight="600">API Gateway</text>
+                                <text x="45" y="58" text-anchor="middle" fill="#D97706" font-size="12"
+                                    font-family="JetBrains Mono" font-weight="600" id="svg-gateway-mode">Async
+                                    Mode</text>
                             </g>
 
                             <!-- Node 3: Message Queue / Redis Streams -->
-                            <g transform="translate(370, 120)" id="svg-queue-node">
-                                <rect width="80" height="80" rx="8" fill="#27272A" stroke="#3F3F46" stroke-width="1.5" />
-                                <text x="40" y="30" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">Redis</text>
-                                <text x="40" y="45" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">Streams</text>
-                                <text x="40" y="68" text-anchor="middle" fill="#10B981" font-size="11" font-family="JetBrains Mono" font-weight="600" id="svg-queue-depth">0 buffered</text>
+                            <g transform="translate(365, 120)" id="svg-queue-node">
+                                <rect width="90" height="80" rx="8" fill="#27272A" stroke="#3F3F46"
+                                    stroke-width="1.5" />
+                                <text x="45" y="30" text-anchor="middle" fill="#38BDF8" font-size="12"
+                                    font-family="Inter" font-weight="600">Redis</text>
+                                <text x="45" y="46" text-anchor="middle" fill="#38BDF8" font-size="12"
+                                    font-family="Inter" font-weight="600">Streams</text>
+                                <text x="45" y="68" text-anchor="middle" fill="#10B981" font-size="12"
+                                    font-family="JetBrains Mono" font-weight="600" id="svg-queue-depth">0
+                                    buffered</text>
                             </g>
 
                             <!-- Node 4: Async Worker Pool -->
                             <!-- Worker 1 -->
                             <g transform="translate(510, 75)" id="svg-worker-node1">
-                                <rect width="80" height="50" rx="6" fill="#27272A" stroke="#10b981" stroke-width="1.5" class="worker-node-rect" />
-                                <text x="40" y="30" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">Worker 1</text>
+                                <rect width="90" height="50" rx="6" fill="#27272A" stroke="#10b981" stroke-width="1.5"
+                                    class="worker-node-rect" />
+                                <text x="45" y="31" text-anchor="middle" fill="#C084FC" font-size="12"
+                                    font-family="Inter" font-weight="600">Worker 1</text>
                             </g>
                             <!-- Worker 2 -->
                             <g transform="translate(510, 135)" id="svg-worker-node2" style="opacity: 0.35;">
-                                <rect width="80" height="50" rx="6" fill="#27272A" stroke="#3F3F46" stroke-width="1" class="worker-node-rect" />
-                                <text x="40" y="30" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">Worker 2</text>
+                                <rect width="90" height="50" rx="6" fill="#27272A" stroke="#3F3F46" stroke-width="1"
+                                    class="worker-node-rect" />
+                                <text x="45" y="31" text-anchor="middle" fill="#C084FC" font-size="12"
+                                    font-family="Inter" font-weight="600">Worker 2</text>
                             </g>
                             <!-- Worker 3 -->
                             <g transform="translate(510, 195)" id="svg-worker-node3" style="opacity: 0.35;">
-                                <rect width="80" height="50" rx="6" fill="#27272A" stroke="#3F3F46" stroke-width="1" class="worker-node-rect" />
-                                <text x="40" y="30" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">Worker 3</text>
+                                <rect width="90" height="50" rx="6" fill="#27272A" stroke="#3F3F46" stroke-width="1"
+                                    class="worker-node-rect" />
+                                <text x="45" y="31" text-anchor="middle" fill="#C084FC" font-size="12"
+                                    font-family="Inter" font-weight="600">Worker 3</text>
                             </g>
 
                             <!-- Node 5: Database (Postgres) -->
                             <g transform="translate(640, 120)">
-                                <path d="M 0 10 C 0 0, 50 0, 50 10 L 50 60 C 50 70, 0 70, 0 60 Z" fill="#27272A" stroke="#3F3F46" stroke-width="1.5" />
+                                <path d="M 0 10 C 0 0, 50 0, 50 10 L 50 60 C 50 70, 0 70, 0 60 Z" fill="#27272A"
+                                    stroke="#3F3F46" stroke-width="1.5" />
                                 <path d="M 0 10 C 0 20, 50 20, 50 10" fill="none" stroke="#3F3F46" stroke-width="1.5" />
                                 <path d="M 0 25 C 0 35, 50 35, 50 25" fill="none" stroke="#3F3F46" stroke-width="1.5" />
-                                <text x="25" y="45" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">Postgres</text>
+                                <text x="25" y="46" text-anchor="middle" fill="#38BDF8" font-size="12"
+                                    font-family="Inter" font-weight="600">Postgres</text>
                             </g>
                         </svg>
                     </div>
@@ -272,8 +322,9 @@
                         <span class="card-title">Fault-Tolerant Async Consumer</span>
                         <span class="code-lang">python</span>
                     </div>
-                    <div class="code-body-wrapper">
-                        <pre><code><span class="keyword">import</span> time
+                    <div class="code-card-body">
+                        <div class="code-body-wrapper">
+                            <pre><code><span class="keyword">import</span> time
 <span class="keyword">import</span> redis
 <span class="keyword">from</span> shared.logger <span class="keyword">import</span> logger
 
@@ -306,21 +357,36 @@ GROUP_NAME = <span class="string">"ingest_workers"</span>
         <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
             logger.error(f<span class="string">"Error in worker consumer loop: {e}"</span>)
             time.sleep(1)  <span class="comment"># Backoff delay</span></code></pre>
-                    </div>
-                    <div class="code-explain">
-                        <span class="explain-title">💡 System Architecture Trade-off:</span>
-                        <p class="explain-desc">
-                            <strong>Sync direct-to-DB writes</strong> choke under high concurrency because database connection pools are finite (typically ~100). Blocking writes scale latency exponentially and crash with HTTP 504 timeouts. 
-                        </p>
-                        <p class="explain-desc" style="margin-top: 0.5rem;">
-                            <strong>Asynchronous Redis Streams</strong> decouple ingestion from processing. The API Gateway writes directly to memory ($O(1)$ stream appends, sub-millisecond response), yielding high-volume absorption with **zero event loss**, scaling async worker consumer threads as backlog depth increases.
-                        </p>
-                    </div>
-                    <div class="code-explain" style="margin-top: 1rem; border-left-color: var(--color-amber-600);">
-                        <span class="explain-title" style="color: var(--text-accent);">🛠️ Real-World Production & OS Tuning Notes:</span>
-                        <p class="explain-desc">
-                            In physical stress tests (using <code>benchmark_stress_test.py</code> against local Docker/WSL), bottleneck patterns shifted from application code to <strong>OS kernel limits</strong>. Under a simulated load of 100k RPS, raw HTTP sockets exhausted local ports, requiring TCP reuse tuning (<code>net.ipv4.tcp_tw_reuse</code>) and file descriptor limit increases (<code>ulimit -n 65535</code>). DECISION: Decoupling architectures is the first step, but kernel-level OS tuning is what guarantees true 100% production reliability under peak stress.
-                        </p>
+                        </div>
+                        <div class="code-explanations-wrapper">
+                            <div class="code-explain">
+                                <span class="explain-title">💡 System Architecture Trade-off:</span>
+                                <p class="explain-desc">
+                                    <strong>Sync direct-to-DB writes</strong> choke under high concurrency because database
+                                    connection pools are finite (typically ~100). Blocking writes scale latency exponentially
+                                    and crash with HTTP 504 timeouts.
+                                </p>
+                                <p class="explain-desc" style="margin-top: 0.5rem;">
+                                    <strong>Asynchronous Redis Streams</strong> decouple ingestion from processing. The API
+                                    Gateway writes directly to memory (O(1) stream appends, sub-millisecond response), yielding
+                                    high-volume absorption with <strong>zero event loss</strong>, scaling async worker consumer
+                                    threads as backlog depth increases.
+                                </p>
+                            </div>
+                            <div class="code-explain" style="border-left-color: var(--color-amber-600);">
+                                <span class="explain-title" style="color: var(--text-accent);">🛠️ Real-World Production & OS
+                                    Tuning Notes:</span>
+                                <p class="explain-desc">
+                                    In physical stress tests (using <code>benchmark_stress_test.py</code> against local
+                                    Docker/WSL), bottleneck patterns shifted from application code to <strong>OS kernel
+                                        limits</strong>. Under a simulated load of 100k RPS, raw HTTP sockets exhausted local
+                                    ports, requiring TCP reuse tuning (<code>net.ipv4.tcp_tw_reuse</code>) and file descriptor
+                                    limit increases (<code>ulimit -n 65535</code>). DECISION: Decoupling architectures is the
+                                    first step, but kernel-level OS tuning is what guarantees true 100% production reliability
+                                    under peak stress.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -332,7 +398,9 @@ GROUP_NAME = <span class="string">"ingest_workers"</span>
                 <div class="contact-info">
                     <h2 class="contact-title">Let's build resilient backends together</h2>
                     <p class="contact-desc">
-                        Looking for an engineer who understands system throughput, message queues, auto-scaling thresholds, and fault-tolerance? I can start helping your team resolve these bottlenecks immediately.
+                        Looking for an engineer who understands system throughput, message queues, auto-scaling
+                        thresholds, and fault-tolerance? I can start helping your team resolve these bottlenecks
+                        immediately.
                     </p>
                     <div class="contact-quick-links">
                         <button onclick="copyEmailToClipboard(this)" class="btn btn-primary" id="btn-copy-email">
@@ -350,7 +418,8 @@ GROUP_NAME = <span class="string">"ingest_workers"</span>
                     <form id="contact-form" action="https://formspree.io/f/xnjevvan" method="POST" target="_blank">
                         <div class="form-group">
                             <label for="form-name">Your Name</label>
-                            <input type="text" id="form-name" name="name" required placeholder="e.g. Alex (Engineering Lead)">
+                            <input type="text" id="form-name" name="name" required
+                                placeholder="e.g. Alex (Engineering Lead)">
                         </div>
                         <div class="form-group">
                             <label for="form-email">Your Email</label>
@@ -358,7 +427,8 @@ GROUP_NAME = <span class="string">"ingest_workers"</span>
                         </div>
                         <div class="form-group">
                             <label for="form-msg">Message</label>
-                            <textarea id="form-msg" name="message" rows="4" required placeholder="Interested in your async queue setup. Let's arrange a time to speak..."></textarea>
+                            <textarea id="form-msg" name="message" rows="4" required
+                                placeholder="Interested in your async queue setup. Let's arrange a time to speak..."></textarea>
                         </div>
                         <button type="submit" id="form-submit-btn" class="btn btn-primary btn-full">
                             Send Message
@@ -378,4 +448,5 @@ GROUP_NAME = <span class="string">"ingest_workers"</span>
     <div id="toast-message" class="toast-message style-hidden"></div>
     <script src="script.js"></script>
 </body>
+
 </html>
