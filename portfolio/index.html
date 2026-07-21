@@ -39,11 +39,6 @@
                 <span class="badge badge-accent">IoT Data Ingestion Platform</span>
                 <h1 class="hero-title">I build resilient async pipelines and message queues for high-throughput data
                     streaming—preventing event drops during peak traffic spikes.</h1>
-                <p class="hero-subtitle">
-                    I am a backend developer specializing in asynchronous pipelines and message queues for
-                    high-throughput data streaming. I build these systems for Tech Leads at AI analytics companies who
-                    need to prevent event drops during traffic spikes.
-                </p>
             </div>
 
             <!-- Dashboard Wrapper -->
@@ -203,7 +198,8 @@
                 <!-- SVG Interactive Architecture Diagram -->
                 <div class="arch-card">
                     <h3 class="card-title">Data Ingestion Dataflow</h3>
-                    <p class="card-desc">Move the slider above to see messages pulse through the pipeline in real-time!
+                    <p class="card-desc">Move the slider above (Traffic controller) to see messages pulse through the
+                        pipeline in real-time!
                     </p>
 
                     <div class="svg-wrapper">
@@ -362,27 +358,37 @@ GROUP_NAME = <span class="string">"ingest_workers"</span>
                             <div class="code-explain">
                                 <span class="explain-title">💡 System Architecture Trade-off:</span>
                                 <p class="explain-desc">
-                                    <strong>Sync direct-to-DB writes</strong> choke under high concurrency because database
-                                    connection pools are finite (typically ~100). Blocking writes scale latency exponentially
+                                    <strong>Sync direct-to-DB writes</strong> choke under high concurrency because
+                                    database
+                                    connection pools are finite (typically ~100). Blocking writes scale latency
+                                    exponentially
                                     and crash with HTTP 504 timeouts.
                                 </p>
                                 <p class="explain-desc" style="margin-top: 0.5rem;">
-                                    <strong>Asynchronous Redis Streams</strong> decouple ingestion from processing. The API
-                                    Gateway writes directly to memory (O(1) stream appends, sub-millisecond response), yielding
-                                    high-volume absorption with <strong>zero event loss</strong>, scaling async worker consumer
+                                    <strong>Asynchronous Redis Streams</strong> decouple ingestion from processing. The
+                                    API
+                                    Gateway writes directly to memory (O(1) stream appends, sub-millisecond response),
+                                    yielding
+                                    high-volume absorption with <strong>zero event loss</strong>, scaling async worker
+                                    consumer
                                     threads as backlog depth increases.
                                 </p>
                             </div>
                             <div class="code-explain" style="border-left-color: var(--color-amber-600);">
-                                <span class="explain-title" style="color: var(--text-accent);">🛠️ Real-World Production & OS
+                                <span class="explain-title" style="color: var(--text-accent);">🛠️ Real-World Production
+                                    & OS
                                     Tuning Notes:</span>
                                 <p class="explain-desc">
                                     In physical stress tests (using <code>benchmark_stress_test.py</code> against local
                                     Docker/WSL), bottleneck patterns shifted from application code to <strong>OS kernel
-                                        limits</strong>. Under a simulated load of 100k RPS, raw HTTP sockets exhausted local
-                                    ports, requiring TCP reuse tuning (<code>net.ipv4.tcp_tw_reuse</code>) and file descriptor
-                                    limit increases (<code>ulimit -n 65535</code>). DECISION: Decoupling architectures is the
-                                    first step, but kernel-level OS tuning is what guarantees true 100% production reliability
+                                        limits</strong>. Under a simulated load of 100k RPS, raw HTTP sockets exhausted
+                                    local
+                                    ports, requiring TCP reuse tuning (<code>net.ipv4.tcp_tw_reuse</code>) and file
+                                    descriptor
+                                    limit increases (<code>ulimit -n 65535</code>). DECISION: Decoupling architectures
+                                    is the
+                                    first step, but kernel-level OS tuning is what guarantees true 100% production
+                                    reliability
                                     under peak stress.
                                 </p>
                             </div>
