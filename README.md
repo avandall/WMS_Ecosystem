@@ -57,3 +57,8 @@ docker compose --profile ai up -d --build
 - **Dashboard UI**: `http://localhost:8080`
 - **AI Health Check**: `http://localhost:8009/health`
 - **AI Metrics**: `http://localhost:8009/metrics`
+
+
+### Portfolio
+- **Live Link**: `https://avandall.github.io/WMS_Ecosystem`
+- **GitHub**: `https://github.com/avandall/WMS_Ecosystem`   

@@ -190,77 +190,77 @@
                             <!-- Grid background -->
                             <defs>
                                 <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(0,0,0,0.03)" stroke-width="1"/>
+                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1"/>
                                 </pattern>
                             </defs>
                             <rect width="100%" height="100%" fill="url(#grid)" rx="8" />
 
                             <!-- Connecting paths -->
                             <!-- Source to Gateway -->
-                            <path d="M 90 160 L 190 160" stroke="#D1D5DB" stroke-width="3" fill="none" id="path1"/>
+                            <path d="M 90 160 L 190 160" stroke="#3F3F46" stroke-width="3" fill="none" id="path1"/>
                             <!-- Gateway to Broker (Queue) / Gateway to DB (Sync path) -->
-                            <path d="M 270 160 L 370 160" stroke="#D1D5DB" stroke-width="3" fill="none" id="path2"/>
+                            <path d="M 270 160 L 370 160" stroke="#3F3F46" stroke-width="3" fill="none" id="path2"/>
                             
                             <!-- Broker to Workers -->
-                            <path d="M 450 160 L 510 100" stroke="#D1D5DB" stroke-width="2" fill="none" id="path-worker1"/>
-                            <path d="M 450 160 L 510 160" stroke="#D1D5DB" stroke-width="2" fill="none" id="path-worker2"/>
-                            <path d="M 450 160 L 510 220" stroke="#D1D5DB" stroke-width="2" fill="none" id="path-worker3"/>
+                            <path d="M 450 160 L 510 100" stroke="#3F3F46" stroke-width="2" fill="none" id="path-worker1"/>
+                            <path d="M 450 160 L 510 160" stroke="#3F3F46" stroke-width="2" fill="none" id="path-worker2"/>
+                            <path d="M 450 160 L 510 220" stroke="#3F3F46" stroke-width="2" fill="none" id="path-worker3"/>
                             
                             <!-- Workers to Postgres -->
-                            <path d="M 590 100 L 640 140" stroke="#D1D5DB" stroke-width="2" fill="none" id="path-db1"/>
-                            <path d="M 590 160 L 640 160" stroke="#D1D5DB" stroke-width="2" fill="none" id="path-db2"/>
-                            <path d="M 590 220 L 640 180" stroke="#D1D5DB" stroke-width="2" fill="none" id="path-db3"/>
+                            <path d="M 590 100 L 640 140" stroke="#3F3F46" stroke-width="2" fill="none" id="path-db1"/>
+                            <path d="M 590 160 L 640 160" stroke="#3F3F46" stroke-width="2" fill="none" id="path-db2"/>
+                            <path d="M 590 220 L 640 180" stroke="#3F3F46" stroke-width="2" fill="none" id="path-db3"/>
 
                             <!-- Dynamic Animated Ingestion Particles -->
-                            <circle r="5" fill="#047857" id="particle-ingest" style="offset-path: path('M 90 160 L 190 160'); animation: moveParticle 1s infinite linear;"></circle>
+                            <circle r="5" fill="#D97706" id="particle-ingest" style="offset-path: path('M 90 160 L 190 160'); animation: moveParticle 1s infinite linear;"></circle>
                             <circle r="5" fill="#10B981" id="particle-queue" style="offset-path: path('M 270 160 L 370 160'); animation: moveParticle 0.8s infinite linear;"></circle>
 
                             <!-- Node 1: Ingress Load -->
                             <g transform="translate(40, 120)">
-                                <rect width="100" height="80" rx="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" />
-                                <text x="50" y="32" text-anchor="middle" fill="#111827" font-size="10" font-family="Inter" font-weight="600">50k robots &</text>
-                                <text x="50" y="47" text-anchor="middle" fill="#111827" font-size="10" font-family="Inter" font-weight="600">IoT Sensors</text>
-                                <text x="50" y="68" text-anchor="middle" fill="#047857" font-size="11" font-family="JetBrains Mono" font-weight="600" id="svg-load-text">10k req/s</text>
+                                <rect width="100" height="80" rx="8" fill="#27272A" stroke="#3F3F46" stroke-width="1.5" />
+                                <text x="50" y="30" text-anchor="middle" fill="#A1A1AA" font-size="11" font-family="Inter" font-weight="500">50k robots &</text>
+                                <text x="50" y="45" text-anchor="middle" fill="#A1A1AA" font-size="11" font-family="Inter" font-weight="500">IoT Sensors</text>
+                                <text x="50" y="68" text-anchor="middle" fill="#D97706" font-size="12" font-family="JetBrains Mono" font-weight="600" id="svg-load-text">10k req/s</text>
                             </g>
 
                             <!-- Node 2: API Gateway -->
                             <g transform="translate(190, 120)">
-                                <rect width="80" height="80" rx="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" />
-                                <text x="40" y="35" text-anchor="middle" fill="#111827" font-size="10" font-family="Inter" font-weight="600">API Gateway</text>
-                                <text x="40" y="58" text-anchor="middle" fill="#047857" font-size="9" font-family="JetBrains Mono" font-weight="600" id="svg-gateway-mode">Async Mode</text>
+                                <rect width="80" height="80" rx="8" fill="#27272A" stroke="#3F3F46" stroke-width="1.5" />
+                                <text x="40" y="35" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">API Gateway</text>
+                                <text x="40" y="58" text-anchor="middle" fill="#D97706" font-size="11" font-family="JetBrains Mono" font-weight="600" id="svg-gateway-mode">Async Mode</text>
                             </g>
 
                             <!-- Node 3: Message Queue / Redis Streams -->
                             <g transform="translate(370, 120)" id="svg-queue-node">
-                                <rect width="80" height="80" rx="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" />
-                                <text x="40" y="32" text-anchor="middle" fill="#111827" font-size="10" font-family="Inter" font-weight="600">Redis</text>
-                                <text x="40" y="47" text-anchor="middle" fill="#111827" font-size="10" font-family="Inter" font-weight="600">Streams</text>
-                                <text x="40" y="68" text-anchor="middle" fill="#047857" font-size="10" font-family="JetBrains Mono" font-weight="600" id="svg-queue-depth">0 buffered</text>
+                                <rect width="80" height="80" rx="8" fill="#27272A" stroke="#3F3F46" stroke-width="1.5" />
+                                <text x="40" y="30" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">Redis</text>
+                                <text x="40" y="45" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">Streams</text>
+                                <text x="40" y="68" text-anchor="middle" fill="#10B981" font-size="11" font-family="JetBrains Mono" font-weight="600" id="svg-queue-depth">0 buffered</text>
                             </g>
 
                             <!-- Node 4: Async Worker Pool -->
                             <!-- Worker 1 -->
                             <g transform="translate(510, 75)" id="svg-worker-node1">
-                                <rect width="80" height="50" rx="6" fill="#FFFFFF" stroke="#10b981" stroke-width="1.5" class="worker-node-rect" />
-                                <text x="40" y="30" text-anchor="middle" fill="#111827" font-size="9" font-family="Inter" font-weight="600">Worker 1</text>
+                                <rect width="80" height="50" rx="6" fill="#27272A" stroke="#10b981" stroke-width="1.5" class="worker-node-rect" />
+                                <text x="40" y="30" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">Worker 1</text>
                             </g>
                             <!-- Worker 2 -->
                             <g transform="translate(510, 135)" id="svg-worker-node2" style="opacity: 0.35;">
-                                <rect width="80" height="50" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" class="worker-node-rect" />
-                                <text x="40" y="30" text-anchor="middle" fill="#4B5563" font-size="9" font-family="Inter">Worker 2</text>
+                                <rect width="80" height="50" rx="6" fill="#27272A" stroke="#3F3F46" stroke-width="1" class="worker-node-rect" />
+                                <text x="40" y="30" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">Worker 2</text>
                             </g>
                             <!-- Worker 3 -->
                             <g transform="translate(510, 195)" id="svg-worker-node3" style="opacity: 0.35;">
-                                <rect width="80" height="50" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" class="worker-node-rect" />
-                                <text x="40" y="30" text-anchor="middle" fill="#4B5563" font-size="9" font-family="Inter">Worker 3</text>
+                                <rect width="80" height="50" rx="6" fill="#27272A" stroke="#3F3F46" stroke-width="1" class="worker-node-rect" />
+                                <text x="40" y="30" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">Worker 3</text>
                             </g>
 
                             <!-- Node 5: Database (Postgres) -->
                             <g transform="translate(640, 120)">
-                                <path d="M 0 10 C 0 0, 50 0, 50 10 L 50 60 C 50 70, 0 70, 0 60 Z" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1.5" />
-                                <path d="M 0 10 C 0 20, 50 20, 50 10" fill="none" stroke="#D1D5DB" stroke-width="1.5" />
-                                <path d="M 0 25 C 0 35, 50 35, 50 25" fill="none" stroke="#D1D5DB" stroke-width="1.5" />
-                                <text x="25" y="45" text-anchor="middle" fill="#111827" font-size="9" font-family="Inter" font-weight="600">Postgres</text>
+                                <path d="M 0 10 C 0 0, 50 0, 50 10 L 50 60 C 50 70, 0 70, 0 60 Z" fill="#27272A" stroke="#3F3F46" stroke-width="1.5" />
+                                <path d="M 0 10 C 0 20, 50 20, 50 10" fill="none" stroke="#3F3F46" stroke-width="1.5" />
+                                <path d="M 0 25 C 0 35, 50 35, 50 25" fill="none" stroke="#3F3F46" stroke-width="1.5" />
+                                <text x="25" y="45" text-anchor="middle" fill="#F4F4F5" font-size="11" font-family="Inter" font-weight="600">Postgres</text>
                             </g>
                         </svg>
                     </div>
