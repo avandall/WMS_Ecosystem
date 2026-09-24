@@ -7,12 +7,19 @@
     <title>High-Throughput Async Ingestion Engine | Portfolio</title>
     <meta name="description"
         content="A live performance benchmark comparing Synchronous and Asynchronous ingestion pipelines. Built to prove system efficiency and zero data loss architecture under peak load.">
-    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <meta name="theme-color" content="#18181B">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="canonical" href="https://avandall.github.io/WMS_Ecosystem/">
+    <!-- Google Fonts: Inter & JetBrains Mono (Non-blocking async load) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
+    <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+    </noscript>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -39,6 +46,7 @@
                 <span class="badge badge-accent">IoT Data Ingestion Platform</span>
                 <h1 class="hero-title">I build resilient async pipelines and message queues for high-throughput data
                     streaming—preventing event drops during peak traffic spikes.</h1>
+                <h2 class="sr-only">Interactive Pipeline Simulator & Real-Time Telemetry</h2>
             </div>
 
             <!-- Dashboard Wrapper -->
@@ -72,11 +80,12 @@
 
                     <div class="slider-container">
                         <div class="slider-labels">
-                            <span class="slider-val-label">Concurrent IoT Rate: <span
-                                    id="current-load-text">10,000</span> req/s</span>
+                            <label for="load-slider" class="slider-val-label">Concurrent IoT Rate: <span
+                                    id="current-load-text">10,000</span> req/s</label>
                         </div>
                         <input type="range" id="load-slider" min="1000" max="100000" step="1000" value="10000"
-                            class="custom-slider">
+                            class="custom-slider" aria-label="Concurrent IoT Rate (requests per second)"
+                            aria-valuemin="1000" aria-valuemax="100000" aria-valuenow="10000">
                         <div class="slider-ticks">
                             <span>1k</span>
                             <span>25k</span>
@@ -452,7 +461,7 @@ GROUP_NAME = <span class="string">"ingest_workers"</span>
     </footer>
 
     <div id="toast-message" class="toast-message style-hidden"></div>
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
 </body>
 
 </html>
