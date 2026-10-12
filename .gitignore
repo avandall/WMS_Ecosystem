@@ -1,4 +1,36 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments & Secrets
 .env
-**/__pycache__/
+.env.*
+*.env
+!*.env.example
+
+# Local databases & persistent stores
+*.db
+*.sqlite
+*.sqlite3
 vector_db/
+
+# Scratch & Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.scratch.*
+
+# IDE & Editor settings
+.vscode/
+.idea/
+.claude/
+.qodo/
+
+# Pipeline & agent harness
 pipeline/
