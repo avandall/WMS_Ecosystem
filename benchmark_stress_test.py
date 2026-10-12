@@ -7,7 +7,11 @@ import uuid
 TARGET_URL = "http://localhost:8000/api/v1/inventory/ingest"  # api-gateway endpoint
 
 async def send_sensor_data(client: httpx.AsyncClient, worker_id: int, sem: asyncio.Semaphore):
-    """Giả lập 1 thiết bị quét mã/robot gửi event liên tục về hệ thống"""
+    """Giả lập 1 thiết bị quét mã/robot gửi event liên tục về hệ thống.
+    
+    Hệ thống sử dụng Write-Ahead Logging (WAL) để đảm bảo 100% dữ liệu
+    được lưu bền vững trước khi phản hồi HTTP 202 Accepted (TASK-048 / ING-01/02).
+    """
     payload = {
         "idempotency_key": str(uuid.uuid4()),
         "sku": f"SKU-AI-MODEL-{random.randint(100, 105)}",

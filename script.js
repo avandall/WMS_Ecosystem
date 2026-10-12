@@ -283,7 +283,7 @@ function simulationTick() {
         }
         
         // Reset worker UI
-        workerChipsContainer.innerHTML = `<span class="worker-chip active" style="border-color: var(--color-red-500); color: var(--color-red-500); background: var(--color-red-500-alpha);">Sync Thread</span>`;
+        workerChipsContainer.innerHTML = `<span class="worker-chip active" style="border-color: #F87171; color: #FCA5A5; background: rgba(239, 68, 68, 0.2);">Sync Thread</span>`;
         
         // Reset SVG Node opacity
         workerNode1.style.opacity = '1';
